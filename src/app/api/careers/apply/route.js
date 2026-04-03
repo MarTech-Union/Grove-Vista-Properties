@@ -1,0 +1,79 @@
+import { NextResponse } from "next/server";
+
+const MAX_FILE_SIZE_BYTES = 4 * 1024 * 1024;
+const ALLOWED_CV_TYPES = [
+  "application/pdf",
+  "application/msword",
+  "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+];
+
+function isValidEmail(email) {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+}
+
+function isValidPhone(phone) {
+  const normalized = phone.replace(/[^\d+]/g, "");
+  return /^\+?\d{10,15}$/.test(normalized);
+}
+
+export async function POST(request) {
+  try {
+    const formData = await request.formData();
+
+    const fullName = (formData.get("fullName") || "").toString().trim();
+    const nationality = (formData.get("nationality") || "").toString().trim();
+    const inMumbai = (formData.get("inMumbai") || "").toString().trim();
+    const department = (formData.get("department") || "").toString().trim();
+    const email = (formData.get("email") || "").toString().trim().toLowerCase();
+    const mobile = (formData.get("mobile") || "").toString().trim();
+    const privacyAccepted = formData.get("privacyAccepted") === "on";
+    const cvFile = formData.get("cvFile");
+
+    if (!fullName || !nationality || !inMumbai || !department) {
+      return NextResponse.json({ message: "Please fill all required fields." }, { status: 400 });
+    }
+
+    if (!isValidEmail(email)) {
+      return NextResponse.json({ message: "Please provide a valid email address." }, { status: 400 });
+    }
+
+    if (!isValidPhone(mobile)) {
+      return NextResponse.json({ message: "Please provide a valid mobile number." }, { status: 400 });
+    }
+
+    if (!privacyAccepted) {
+      return NextResponse.json({ message: "Please accept the privacy policy before submitting." }, { status: 400 });
+    }
+
+    if (!(cvFile instanceof File) || cvFile.size === 0) {
+      return NextResponse.json({ message: "Please upload your CV before submitting." }, { status: 400 });
+    }
+
+    if (cvFile.size > MAX_FILE_SIZE_BYTES) {
+      return NextResponse.json({ message: "CV file must be 4MB or smaller." }, { status: 400 });
+    }
+
+    if (cvFile.type && !ALLOWED_CV_TYPES.includes(cvFile.type)) {
+      return NextResponse.json({ message: "Please upload a PDF or DOC file." }, { status: 400 });
+    }
+
+    return NextResponse.json(
+      {
+        message: "Application submitted successfully.",
+        data: {
+          applicationId: `CAR-${Date.now()}`,
+          fullName,
+          email,
+          mobile,
+          department,
+          inMumbai,
+          cvFileName: cvFile.name,
+          submittedAt: new Date().toISOString(),
+        },
+      },
+      { status: 200 }
+    );
+  } catch {
+    return NextResponse.json({ message: "Unable to process application." }, { status: 400 });
+  }
+}
