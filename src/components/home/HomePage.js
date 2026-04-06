@@ -63,8 +63,8 @@ const services = [
   },
 ];
 
-const heroImage =
-  "https://static.vecteezy.com/system/resources/thumbnails/036/725/233/small_2x/ai-generated-real-estate-advertisment-background-with-copy-space-free-photo.jpg";
+const heroVideo =
+  "https://ik.imagekit.io/zvwwmpviq/GV_Properties.mp4";
 const careerImage = "https://images.unsplash.com/photo-1556155092-490a1ba16284?auto=format&fit=crop&w=1400&q=80";
 
 export default function HomePage() {
@@ -83,7 +83,17 @@ export default function HomePage() {
   return (
     <div>
       <section className="relative flex min-h-[90vh] items-center justify-center overflow-hidden">
-        <Image src={heroImage} alt="Luxury city skyline" fill priority className="object-cover" sizes="100vw" />
+        <video
+          className="absolute inset-0 h-full w-full object-cover"
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="metadata"
+          aria-hidden="true"
+        >
+          <source src={heroVideo} type="video/mp4" />
+        </video>
         <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/70" />
 
         <div className="relative z-10 mx-auto max-w-4xl px-4 pt-20 text-center">
