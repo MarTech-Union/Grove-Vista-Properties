@@ -10,6 +10,7 @@ const statsData = [
 
 const groupImage = "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1600&q=80";
 const ceoImg = "https://static.vecteezy.com/system/resources/thumbnails/024/344/088/small/businessman-isolated-illustration-ai-generative-free-png.png";
+const leaderImg = "/PeopleImg.jpg";
 
 const StatCard = ({ value, label }) => {
   return (
@@ -66,6 +67,29 @@ const insideData = [
     title: "Press",
     description:
       "Grove Vista insights and announcements are regularly featured across market reports and media conversations on housing trends.",
+  },
+];
+
+const leader = [
+  {
+    id: 1,
+    name: "Amit Sharma",
+    position: "Founder & CEO",
+  },
+  {
+    id: 2,
+    name: "Priya Mehta",
+    position: "Chief Operating Officer",
+  },
+  {
+    id: 3,
+    name: "Rahul Verma",
+    position: "Head of Sales",
+  },
+  {
+    id: 4,
+    name: "Neha Patel",
+    position: "Marketing Director",
   },
 ];
 
@@ -218,7 +242,41 @@ export default function AboutUsPage() {
           ))}
         </div>
       </section>
+    
 
+
+    <section className="mx-auto w-full max-w-7xl px-4 py-12 sm:px-6 md:py-16">
+        <div className="mx-auto max-w-3xl text-center">
+          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-slate-500">Our Leadership</p>
+          <h2 className="mt-3 text-3xl font-bold text-blue-950 sm:text-4xl">Meet the team behind GrowVista Property</h2>
+          <div className="mt-6">
+            <button className="rounded-full bg-blue-950 px-6 py-2 text-sm font-semibold text-white transition hover:bg-black" type="button">
+              Leadership
+            </button>
+          </div>
+        </div>
+
+        <div className="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-4">
+          {leader.map((item) => (
+            <article
+              key={item.id}
+              className="relative overflow-hidden rounded-3xl border border-gray-100 bg-white/70 p-4 backdrop-blur-xl transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.08)]"
+            >
+              <div className="relative h-64 w-full overflow-hidden rounded-2xl bg-slate-100">
+                <Image src={leaderImg} alt={item.name} fill className="object-cover" sizes="(max-width: 1280px) 50vw, 25vw" />
+              </div>
+
+              <div className="px-2 pb-2 pt-5">
+                <h3 className="text-lg font-bold text-gray-900">{item.name}</h3>
+                <p className="mt-1 text-sm text-gray-500">{item.position}</p>
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+
+
+      
      <section
   id="feedback"
   className="scroll-mt-28 w-full bg-gradient-to-br from-blue-50/60 to-slate-50 py-16"

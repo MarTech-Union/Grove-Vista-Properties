@@ -168,6 +168,37 @@ const luxuryDetails = [
   },
 ];
 
+const faqs = [
+  {
+    id: 1,
+    question: "What is the process of buying a property in Mumbai?",
+    answer:
+      "The process includes selecting a property, verifying legal documents, signing the agreement, paying stamp duty and registration charges, and completing ownership transfer.",
+  },
+  {
+    id: 2,
+    question: "What are the stamp duty charges in Mumbai?",
+    answer: "Stamp duty in Mumbai is usually around 5% of the property value, along with 1% registration charges.",
+  },
+  {
+    id: 3,
+    question: "Can I get a home loan for buying property in Mumbai?",
+    answer:
+      "Yes, most banks and financial institutions offer home loans covering up to 75-90% of the property value, depending on eligibility.",
+  },
+  {
+    id: 4,
+    question: "Which are the best areas to invest in Mumbai real estate?",
+    answer: "Popular areas include Bandra, Andheri, Powai, Thane, and Navi Mumbai due to good connectivity and infrastructure.",
+  },
+  {
+    id: 5,
+    question: "What documents are required to buy a property in Mumbai?",
+    answer:
+      "Key documents include title deed, sale agreement, occupancy certificate (OC), building approvals, and identity/address proof.",
+  },
+];
+
 function withinPriceRange(priceCr, range) {
   if (range === "Any Price") return true;
   if (range === "Under 2 Cr") return priceCr < 2;
@@ -188,6 +219,7 @@ export default function BuyPage() {
   const [searchText, setSearchText] = useState(initialQuery);
   const [priceRange, setPriceRange] = useState("Any Price");
   const [propertyType, setPropertyType] = useState("Any Type");
+  const [openId, setOpenId] = useState(null);
 
   const statusFilters = ["Any", "Ready", "Off Plan"];
   const sortOptions = ["Most Recent", "Price: Low to High", "Price: High to Low", "Most Popular"];
@@ -230,6 +262,10 @@ export default function BuyPage() {
       ...prev,
       [propertyId]: !prev[propertyId],
     }));
+  };
+
+  const toggleFaq = (id) => {
+    setOpenId((current) => (current === id ? null : id));
   };
 
   return (
@@ -512,7 +548,7 @@ export default function BuyPage() {
         </div>
       </section>
 
-      <section className="px-6 py-10">
+       <section className="px-6 py-10">
         <div className="mx-auto max-w-7xl rounded-2xl bg-[#0b1b4a] px-8 py-10 md:px-20">
           <h2 className="pb-4 text-4xl font-bold">
             <span className="text-white">Get </span>
@@ -526,6 +562,43 @@ export default function BuyPage() {
           </div>
         </div>
       </section>
+
+      <section className="bg-white px-6 py-12">
+        <div className="mx-auto max-w-4xl">
+          <h2 className="mb-10 text-3xl font-semibold text-blue-950 md:text-4xl">Frequently Asked Questions</h2>
+
+          {faqs.map((item) => (
+            <div key={item.id} className="border-b border-slate-200 py-6">
+              <button
+                onClick={() => toggleFaq(item.id)}
+                className="flex w-full items-center justify-between gap-4 text-left"
+                type="button"
+                aria-expanded={openId === item.id}
+              >
+                <h3 className="text-base font-semibold text-slate-900 md:text-lg">{item.question}</h3>
+                <span
+                  className={`text-xl font-bold text-blue-900 transition-transform duration-300 ${
+                    openId === item.id ? "rotate-45" : "rotate-0"
+                  }`}
+                  aria-hidden="true"
+                >
+                  +
+                </span>
+              </button>
+
+              <div
+                className={`overflow-hidden text-slate-600 transition-all duration-300 ${
+                  openId === item.id ? "mt-4 max-h-96" : "max-h-0"
+                }`}
+              >
+                <p className="text-sm leading-relaxed md:text-base">{item.answer}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+     
     </div>
   );
 }
