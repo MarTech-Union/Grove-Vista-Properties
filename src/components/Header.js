@@ -12,21 +12,39 @@ const menuData = {
     sections: [
       {
         heading: "Properties by Type",
-        items: ["Apartments", "Penthouses", "Villas", "Bungalows", "Commercial", "See All"],
+        items: [
+          "Apartments",
+          "Penthouses",
+          "Villas",
+          "Bungalows",
+          "Commercial",
+          "See All",
+        ],
       },
       {
         heading: "Buyer Resources",
-        items: ["Buyer Guide", "Home Loan Assistance", "Legal Help", "RERA Info"],
+        items: [
+          "Buyer Guide",
+          "Home Loan Assistance",
+          "Legal Help",
+          "RERA Info",
+        ],
       },
     ],
   },
   Rent: {
     title: "Properties for Rent",
-    path: null,
+    path: "/rent",
     sections: [
       {
         heading: "Popular Rentals",
-        items: ["Apartments", "Villas", "Short Term", "Commercial", "Co-living"],
+        items: [
+          "Apartments",
+          "Villas",
+          "Short Term",
+          "Commercial",
+          "Co-living",
+        ],
       },
       {
         heading: "Resources",
@@ -40,7 +58,13 @@ const menuData = {
     sections: [
       {
         heading: "By City",
-        items: ["Mumbai Projects", "Delhi NCR Projects", "Bangalore Projects", "Pune Projects", "Hyderabad Projects"],
+        items: [
+          "Mumbai Projects",
+          "Delhi NCR Projects",
+          "Bangalore Projects",
+          "Pune Projects",
+          "Hyderabad Projects",
+        ],
       },
       {
         heading: "By Type",
@@ -72,7 +96,13 @@ const menuData = {
       },
       {
         heading: "Premium Localities",
-        items: ["Bandra West", "Worli", "Golf Course Road", "Koramangala", "Jubilee Hills"],
+        items: [
+          "Bandra West",
+          "Worli",
+          "Golf Course Road",
+          "Koramangala",
+          "Jubilee Hills",
+        ],
       },
     ],
   },
@@ -82,11 +112,21 @@ const menuData = {
     sections: [
       {
         heading: "What We Offer",
-        items: ["Home Loan", "Legal Consultation", "Property Management", "NRI Services"],
+        items: [
+          "Home Loan",
+          "Legal Consultation",
+          "Property Management",
+          "NRI Services",
+        ],
       },
       {
         heading: "Tools",
-        items: ["EMI Calculator", "Market Reports", "Property Valuation", "Newsletter"],
+        items: [
+          "EMI Calculator",
+          "Market Reports",
+          "Property Valuation",
+          "Newsletter",
+        ],
       },
     ],
   },
@@ -109,12 +149,13 @@ const menuData = {
 const menuItemRoutes = {
   Newsletter: "/newsletter-subscribe",
   "About Us": "/about",
-  "Testimonials": "/testimonials",
+  Testimonials: "/testimonials",
   "Contact Us": "/contact",
   Careers: "/careers",
   Press: "/about",
   Blog: "/",
   FAQs: "/contact",
+  "EMI Calculator": "/services/emiCalculator",
 };
 
 function isRoutable(path) {
@@ -149,12 +190,21 @@ export default function Header() {
   return (
     <header
       className={`fixed left-0 top-0 z-50 h-25 w-full transition-all duration-300 ${
-        scrolled ? "border-b border-slate-200 bg-white shadow-lg backdrop-blur-xl" : "border-b border-slate-100 bg-white"
+        scrolled
+          ? "border-b border-slate-200 bg-white shadow-lg backdrop-blur-xl"
+          : "border-b border-slate-100 bg-white"
       }`}
     >
       <div className="mx-auto flex h-full max-w-7xl items-center justify-between gap-4 px-4 sm:px-6">
         <Link href="/" className="shrink-0">
-          <Image src="/logo_GVP.png" alt="Grove Vista Properties" width={180} height={45} priority />
+          <Image
+            src="/Grove Vista Properties.webp"
+            alt="Grove Vista Properties"
+            width={180}
+            height={45}
+            style={{ width: "auto", height: "auto" }}
+            priority
+          />
         </Link>
 
         <nav className="hidden flex-1 justify-center lg:flex lg:items-center lg:gap-0.5">
@@ -167,7 +217,9 @@ export default function Header() {
             >
               <button
                 className={`flex items-center gap-1.5 rounded-lg px-3.5 py-2 text-[14px] font-semibold transition-all duration-200 ${
-                  activeMenu === menu ? "bg-blue-50/80 text-blue-600" : "text-slate-700 hover:bg-slate-50 hover:text-blue-600"
+                  activeMenu === menu
+                    ? "bg-blue-50/80 text-blue-600"
+                    : "text-slate-700 hover:bg-slate-50 hover:text-blue-600"
                 }`}
                 onClick={() => {
                   if (isRoutable(data.path)) {
@@ -179,14 +231,21 @@ export default function Header() {
                 {menu}
                 <svg
                   className={`h-3.5 w-3.5 transition-transform duration-200 ${
-                    activeMenu === menu ? "rotate-180 text-blue-500" : "text-slate-400"
+                    activeMenu === menu
+                      ? "rotate-180 text-blue-500"
+                      : "text-slate-400"
                   }`}
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
                   aria-hidden="true"
                 >
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M19 9l-7 7-7-7" />
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2.5}
+                    d="M19 9l-7 7-7-7"
+                  />
                 </svg>
               </button>
 
@@ -194,13 +253,17 @@ export default function Header() {
                 <div className="absolute left-0 top-full z-50 mt-2 w-[520px] rounded-2xl border border-white/60 bg-white/95 p-6 shadow-[0_20px_60px_-10px_rgba(0,0,0,0.15)] backdrop-blur-2xl">
                   <div className="mb-5 flex items-center gap-2 border-b border-slate-100 pb-4">
                     <div className="h-5 w-1.5 rounded-full bg-blue-600" />
-                    <h2 className="text-[13px] font-extrabold uppercase tracking-wider text-blue-600">{data.title}</h2>
+                    <h2 className="text-[13px] font-extrabold uppercase tracking-wider text-blue-600">
+                      {data.title}
+                    </h2>
                   </div>
 
                   <div className="grid grid-cols-2 gap-6">
                     {data.sections.map((section) => (
                       <div key={section.heading}>
-                        <p className="mb-3 text-[11px] font-extrabold uppercase tracking-widest text-slate-400">{section.heading}</p>
+                        <p className="mb-3 text-[11px] font-extrabold uppercase tracking-widest text-slate-400">
+                          {section.heading}
+                        </p>
                         <div className="flex flex-col gap-1">
                           {section.items.map((item) => (
                             <button
@@ -228,7 +291,13 @@ export default function Header() {
             className="flex items-center gap-2 text-[13px] font-bold text-slate-700 transition-colors hover:text-blue-600"
           >
             <span className="flex h-8 w-8 items-center justify-center rounded-full bg-blue-50">
-              <svg className="h-4 w-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <svg
+                className="h-4 w-4 text-blue-600"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
@@ -242,10 +311,16 @@ export default function Header() {
 
           <div className="h-6 w-px bg-slate-200" />
 
-          <button className="rounded-xl border border-slate-300 px-5 py-2.5 text-[14px] font-bold text-slate-700 transition-all duration-200 hover:border-blue-500 hover:bg-blue-50/50 hover:text-blue-600" type="button">
+          <button
+            className="rounded-xl border border-slate-300 px-5 py-2.5 text-[14px] font-bold text-slate-700 transition-all duration-200 hover:border-blue-500 hover:bg-blue-50/50 hover:text-blue-600"
+            type="button"
+          >
             Login
           </button>
-          <button className="rounded-xl bg-slate-900 px-5 py-2.5 text-[14px] font-bold text-white shadow-md shadow-slate-500/20 transition-all duration-200 hover:bg-slate-700 hover:shadow-lg hover:shadow-slate-500/30" type="button">
+          <button
+            className="rounded-xl bg-slate-900 px-5 py-2.5 text-[14px] font-bold text-white shadow-md shadow-slate-500/20 transition-all duration-200 hover:bg-slate-700 hover:shadow-lg hover:shadow-slate-500/30"
+            type="button"
+          >
             List Property
           </button>
         </div>
@@ -257,11 +332,27 @@ export default function Header() {
           aria-expanded={isMobileMenuOpen}
           type="button"
         >
-          <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <svg
+            className="h-5 w-5"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+          >
             {isMobileMenuOpen ? (
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M6 18L18 6M6 6l12 12" />
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2.5}
+                d="M6 18L18 6M6 6l12 12"
+              />
             ) : (
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M4 6h16M4 12h16M4 18h16" />
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2.5}
+                d="M4 6h16M4 12h16M4 18h16"
+              />
             )}
           </svg>
         </button>
@@ -274,20 +365,29 @@ export default function Header() {
               <div key={menu}>
                 <button
                   className="flex w-full items-center justify-between rounded-xl px-4 py-3 text-[14px] font-bold text-slate-800 transition-all hover:bg-blue-50/50 hover:text-blue-600"
-                  onClick={() => setMobileExpanded((prev) => (prev === menu ? null : menu))}
+                  onClick={() =>
+                    setMobileExpanded((prev) => (prev === menu ? null : menu))
+                  }
                   type="button"
                 >
                   <span>{menu}</span>
                   <svg
                     className={`h-4 w-4 transition-transform duration-200 ${
-                      mobileExpanded === menu ? "rotate-180 text-blue-500" : "text-slate-400"
+                      mobileExpanded === menu
+                        ? "rotate-180 text-blue-500"
+                        : "text-slate-400"
                     }`}
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
                     aria-hidden="true"
                   >
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M19 9l-7 7-7-7" />
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2.5}
+                      d="M19 9l-7 7-7-7"
+                    />
                   </svg>
                 </button>
 
@@ -295,7 +395,9 @@ export default function Header() {
                   <div className="mb-2 ml-4 border-l-2 border-blue-100 pl-4 pt-1">
                     {data.sections.map((section) => (
                       <div key={section.heading} className="py-2">
-                        <p className="mb-2 text-[10.5px] font-extrabold uppercase tracking-widest text-slate-400">{section.heading}</p>
+                        <p className="mb-2 text-[10.5px] font-extrabold uppercase tracking-widest text-slate-400">
+                          {section.heading}
+                        </p>
                         {section.items.map((item) => (
                           <button
                             key={item}
@@ -318,7 +420,13 @@ export default function Header() {
                 href="tel:+919999999999"
                 className="flex w-full items-center justify-center gap-2 rounded-xl border border-slate-200 py-3 text-[14px] font-bold text-slate-700 hover:bg-slate-50"
               >
-                <svg className="h-4 w-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <svg
+                  className="h-4 w-4 text-blue-600"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                >
                   <path
                     strokeLinecap="round"
                     strokeLinejoin="round"
@@ -328,10 +436,16 @@ export default function Header() {
                 </svg>
                 +91 99XXXXXX
               </a>
-              <button className="w-full rounded-xl border border-slate-300 py-3 text-[14px] font-bold transition-colors hover:bg-slate-50" type="button">
+              <button
+                className="w-full rounded-xl border border-slate-300 py-3 text-[14px] font-bold transition-colors hover:bg-slate-50"
+                type="button"
+              >
                 Login
               </button>
-              <button className="w-full rounded-xl bg-blue-600 py-3 text-[14px] font-bold text-white shadow-md transition-colors hover:bg-blue-700" type="button">
+              <button
+                className="w-full rounded-xl bg-blue-600 py-3 text-[14px] font-bold text-white shadow-md transition-colors hover:bg-blue-700"
+                type="button"
+              >
                 List Your Property
               </button>
             </div>

@@ -156,7 +156,7 @@ const luxuryDetails = [
     price: "INR 25 Cr - 80 Cr",
     location: "Mumbai, Maharashtra",
     builder: "Lodha Group",
-    image: "https://images.unsplash.com/photo-1460317442991-0ec8fb51b495?auto=format&fit=crop&w=1200&q=80",
+    image: "https://images.unsplash.com/photo-1479839672679-a46483c0e7c8?auto=format&fit=crop&w=1200&q=80",
   },
   {
     id: 4,
