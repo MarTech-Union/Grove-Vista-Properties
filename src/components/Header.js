@@ -198,7 +198,7 @@ export default function Header() {
       <div className="mx-auto flex h-full max-w-7xl items-center justify-between gap-4 px-4 sm:px-6">
         <Link href="/" className="shrink-0">
           <Image
-            src="/Grove Vista Properties.webp"
+            src="/GroveVista.png"
             alt="Grove Vista Properties"
             width={180}
             height={45}
