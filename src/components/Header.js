@@ -202,7 +202,6 @@ export default function Header() {
             alt="Grove Vista Properties"
             width={180}
             height={45}
-            style={{ width: "auto", height: "auto" }}
             priority
           />
         </Link>
