@@ -7,13 +7,14 @@ const footerLinks = {
     { name: "Snagging and Inspection", path: "/services" },
     { name: "Holiday Homes", path: "/services" },
   ],
-  About: [
+  Company: [
     { name: "About Us", path: "/about" },
     { name: "Careers", path: "/services" },
     { name: "Our Awards", path: "/about" },
     { name: "Blog", path: "/" },
     { name: "Newsletter", path: "/about/newsletter-subscribe" },
-    { name: "Contact", path: "/contact" },
+    { name: "Contact Us", path: "/contact" },
+    {name:"Testimonials", path:"/testimonials"},  
   ],
 };
 
@@ -69,7 +70,7 @@ export default function Footer() {
               <ul className="space-y-4">
                 <li className="text-[13px] font-medium tracking-wide text-slate-300">
                   <a href="tel:+919999999999" className="transition-colors hover:text-white">
-                    +91 99XXXXXXXX
+                    +91 9082799951
                   </a>
                 </li>
                 <li className="text-[13px] font-medium tracking-wide text-slate-300">

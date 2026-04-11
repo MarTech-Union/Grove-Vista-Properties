@@ -19,8 +19,8 @@ const contactCards = [
 
   {
     label: "Phone",
-    value: "+91 99XXXXXXXX",
-    href: "tel:+919999999999",
+    value: "+91 9082799951",
+    href: "tel:+91 9082799951",
     ring: "border-blue-200/50 bg-blue-100/80",
     icon: (
       <svg className="h-5 w-5 text-blue-600" fill="currentColor" viewBox="0 0 24 24">

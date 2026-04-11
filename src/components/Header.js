@@ -6,69 +6,57 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 
 const menuData = {
-  Buy: {
-    title: "Properties for Sale in India",
-    path: "/buy",
+  "Property Listings": {
+    title: "Property Listings",
+    path: null,
     sections: [
       {
-        heading: "Properties by Type",
+        heading:"Properties in Mumbai",
         items: [
-          "Apartments",
-          "Penthouses",
-          "Villas",
-          "Bungalows",
-          "Commercial",
-          "See All",
+          "Properties for Sale",
+          "Properties for Rent",
+          "Off-Plan Properties",
         ],
-      },
-      {
-        heading: "Buyer Resources",
-        items: [
-          "Buyer Guide",
-          "Home Loan Assistance",
-          "Legal Help",
-          "RERA Info",
-        ],
-      },
-    ],
-  },
-  Rent: {
-    title: "Properties for Rent",
-    path: "/rent",
-    sections: [
-      {
-        heading: "Popular Rentals",
-        items: [
-          "Apartments",
-          "Villas",
-          "Short Term",
-          "Commercial",
-          "Co-living",
-        ],
-      },
-      {
-        heading: "Resources",
-        items: ["Tenant Guide", "Rental Agreement", "FAQs"],
       },
     ],
   },
   Projects: {
-    title: "New Projects in India",
+    title: "New Projects in Mumbai",
     path: null,
     sections: [
       {
-        heading: "By City",
+        heading: "Lodha Group",
         items: [
-          "Mumbai Projects",
-          "Delhi NCR Projects",
-          "Bangalore Projects",
-          "Pune Projects",
-          "Hyderabad Projects",
+          "Palava City (Navi Mumbai)",
+          "Lodha Wadala / New Cuffe Parade (Mumbai)",
+          "Lodha Byculla / South Mumbai Redevelopment Projects",
         ],
       },
       {
-        heading: "By Type",
-        items: ["Luxury", "Mid-Range", "Affordable", "Off-Plan / Pre-Launch"],
+        heading: "Oberoi & Others",
+        items: [
+          "Oberoi Garden City (Goregaon, Mumbai)",
+          "Three Sixty West (Worli, Mumbai)",
+          "Peddar Road Luxury Project (New Launch)",
+        ],
+      },
+      {
+        heading: "Godrej Properties",
+        items: [
+          "Godrej Jardinia (Chembur, Mumbai)",
+          "Godrej Vikhroli Township / The Trees",
+        ],
+      },
+      {
+        heading: "Piramal & Marathon",
+        items: [
+          "Piramal Mahalaxmi (South Mumbai)",
+          "Piramal Aranya (Byculla, Mumbai)",
+          "Piramal Revanta (Mulund, Mumbai)",
+          "Marathon Nextown (Dombivli)",
+          "Marathon Nexzone (Panvel)",
+          "Marathon Millennium / Marathon Futurex (Lower Parel, Mumbai)",
+        ],
       },
     ],
   },
@@ -77,55 +65,13 @@ const menuData = {
     path: null,
     sections: [
       {
-        heading: "National Leaders",
-        items: ["DLF", "Lodha", "Godrej Properties", "Prestige Group", "Sobha"],
-      },
-      {
-        heading: "Regional Leaders",
-        items: ["Hiranandani", "Oberoi Realty", "Rustomjee", "Brigade Group"],
-      },
-    ],
-  },
-  Areas: {
-    title: "Explore Cities and Areas",
-    path: null,
-    sections: [
-      {
-        heading: "Top Cities",
-        items: ["Mumbai", "Delhi NCR", "Bangalore", "Pune", "Hyderabad"],
-      },
-      {
-        heading: "Premium Localities",
+        heading:"Trusted Developers",
         items: [
-          "Bandra West",
-          "Worli",
-          "Golf Course Road",
-          "Koramangala",
-          "Jubilee Hills",
-        ],
-      },
-    ],
-  },
-  Services: {
-    title: "Our Services",
-    path: "/services",
-    sections: [
-      {
-        heading: "What We Offer",
-        items: [
-          "Home Loan",
-          "Legal Consultation",
-          "Property Management",
-          "NRI Services",
-        ],
-      },
-      {
-        heading: "Tools",
-        items: [
-          "EMI Calculator",
-          "Market Reports",
-          "Property Valuation",
-          "Newsletter",
+          "Lodha Group",
+          "Oberoi Realty",
+          "Godrej Properties",
+          "Piramal Realty",
+          "Marathon Group",
         ],
       },
     ],
@@ -136,17 +82,20 @@ const menuData = {
     sections: [
       {
         heading: "Company",
-        items: ["About Us", "Testimonials", "Careers", "Press", "Contact Us"],
+        items: ["About Us", "Testimonials", "Careers"],
       },
       {
         heading: "Resources",
-        items: ["Blog", "FAQs", "Newsletter"],
+        items: ["Blog", "Case Study", "FAQs", "Newsletter"],
       },
     ],
   },
 };
 
 const menuItemRoutes = {
+  "Properties for Sale": "/buy",
+  "Properties for Rent": "/rent",
+  "Off-Plan Properties": "/",
   Newsletter: "/newsletter-subscribe",
   "About Us": "/about",
   Testimonials: "/testimonials",
@@ -249,7 +198,7 @@ export default function Header() {
               </button>
 
               {activeMenu === menu && (
-                <div className="absolute left-0 top-full z-50 mt-2 w-[520px] rounded-2xl border border-white/60 bg-white/95 p-6 shadow-[0_20px_60px_-10px_rgba(0,0,0,0.15)] backdrop-blur-2xl">
+                <div className="absolute left-0 top-full z-50 mt-2 w-[580px] rounded-2xl border border-white/60 bg-white/95 p-6 shadow-[0_20px_60px_-10px_rgba(0,0,0,0.15)] backdrop-blur-2xl">
                   <div className="mb-5 flex items-center gap-2 border-b border-slate-100 pb-4">
                     <div className="h-5 w-1.5 rounded-full bg-blue-600" />
                     <h2 className="text-[13px] font-extrabold uppercase tracking-wider text-blue-600">
@@ -257,9 +206,9 @@ export default function Header() {
                     </h2>
                   </div>
 
-                  <div className="grid grid-cols-2 gap-6">
-                    {data.sections.map((section) => (
-                      <div key={section.heading}>
+                  <div className="grid grid-cols-2 gap-6 max-h-80 overflow-y-auto pr-1">
+                    {data.sections.map((section, index) => (
+                      <div key={section.heading || index}>
                         <p className="mb-3 text-[11px] font-extrabold uppercase tracking-widest text-slate-400">
                           {section.heading}
                         </p>
@@ -305,22 +254,17 @@ export default function Header() {
                 />
               </svg>
             </span>
-            +91 99XXXXXX
+            +91 9082799951
           </a>
 
           <div className="h-6 w-px bg-slate-200" />
 
           <button
-            className="rounded-xl border border-slate-300 px-5 py-2.5 text-[14px] font-bold text-slate-700 transition-all duration-200 hover:border-blue-500 hover:bg-blue-50/50 hover:text-blue-600"
-            type="button"
-          >
-            Login
-          </button>
-          <button
             className="rounded-xl bg-slate-900 px-5 py-2.5 text-[14px] font-bold text-white shadow-md shadow-slate-500/20 transition-all duration-200 hover:bg-slate-700 hover:shadow-lg hover:shadow-slate-500/30"
+            onClick={() => router.push("/contact")}
             type="button"
           >
-            List Property
+            Contact Us
           </button>
         </div>
 
@@ -433,19 +377,14 @@ export default function Header() {
                     d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
                   />
                 </svg>
-                +91 99XXXXXX
+                +91 9082799951
               </a>
               <button
-                className="w-full rounded-xl border border-slate-300 py-3 text-[14px] font-bold transition-colors hover:bg-slate-50"
+                className="w-full rounded-xl bg-slate-900 py-3 text-[14px] font-bold text-white shadow-md transition-colors hover:bg-slate-700"
+                onClick={() => router.push("/contact")}
                 type="button"
               >
-                Login
-              </button>
-              <button
-                className="w-full rounded-xl bg-blue-600 py-3 text-[14px] font-bold text-white shadow-md transition-colors hover:bg-blue-700"
-                type="button"
-              >
-                List Your Property
+                Contact Us
               </button>
             </div>
           </div>
