@@ -63,6 +63,21 @@ const services = [
   },
 ];
 
+const service = [
+  { title: "Home Loan", icon: "/icons/home-loan.png" },
+  { title: "Home Interior Design", icon: "/icons/home-interior.png" },
+  { title: "Property Legal Services",icon:"/icons/propery-legal-services.png"},
+  { title: "Property Management", icon:"/icons/property-management.png"},
+  { title: "Escrow Services",icon:"/icons/escrow-services.png" },
+  { title: "Online Rent Agreement",icon:"/icons/online-rent-agreement.png" },
+  { title: "Rent Receipt Generator",icon:"/icons/online-rent-receipt-generator.png" },
+  { title: "Sell or Rent Property", icon:"/icons/sell-or-rent-property.png"},
+  { title: "Title Search",icon:"/icons/title-search.png"},
+  { title: "Litigation",icon:"/icons/litigation.png"},
+  { title: "Valuation", icon:"/icons/valuation.png" },
+  { title: "Property Registration",icon:"/icons/property-registration.png" },
+];
+
 const heroVideo =
   "https://ik.imagekit.io/zvwwmpviq/GV_Properties.mp4";
 const careerImage = "https://images.unsplash.com/photo-1556155092-490a1ba16284?auto=format&fit=crop&w=1400&q=80";
@@ -288,6 +303,36 @@ export default function HomePage() {
       </section>
 
        <Newsletter />
+
+       <section className="bg-slate-100 px-6 py-20">
+        <div className="mx-auto max-w-7xl items-center">
+            <h1 className="text-3xl font-medium mb-5 text-center">
+              Everything you Need at One Place
+            </h1>
+           {/* Grid */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 mt-10 border border-gray-200">
+          
+          {service.map((service, index) => (
+            <div
+              key={index}
+              className="flex flex-col items-center justify-center p-6 border border-gray-200 hover:bg-white transition cursor-pointer"
+            >
+              <Image
+                src={service.icon}
+                alt={service.title}
+                width={60}
+                height={60}
+                className="mb-4"
+              />
+              <p className="text-sm text-gray-700 font-medium text-center">
+                {service.title}
+              </p>
+            </div>
+          ))}
+
+        </div>
+        </div>
+       </section>
 
 
       <section className="relative overflow-hidden bg-slate-900 py-24">
