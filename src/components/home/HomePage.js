@@ -310,12 +310,12 @@ export default function HomePage() {
               Everything you Need at One Place
             </h1>
            {/* Grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 mt-10 border border-gray-200">
+        <div className="grid grid-cols-2 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 mt-10  gap-2">
           
           {service.map((service, index) => (
             <div
               key={index}
-              className="flex flex-col items-center justify-center p-6 border border-gray-200 hover:bg-white transition cursor-pointer"
+              className="flex flex-col items-center justify-center p-8 mt-2 cursor-pointer rounded-3xl border border-white/60 bg-white/40 shadow-sm backdrop-blur-xl transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.1)]"
             >
               <Image
                 src={service.icon}
