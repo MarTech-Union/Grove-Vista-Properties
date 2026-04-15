@@ -11,7 +11,7 @@ const properties = [
     id: 1,
     price: "₹ 3.50 L/mo",
     title: "Golf Course View | Ultra Luxury | Fully Furnished",
-    location: "DLF The Camellias, Gurgaon, NCR",
+    location: "DLF The Camellias, Juhu, Mumbai",
     type: "Apartment",
     status: "Available",
     sqft: "7,100",
@@ -28,7 +28,7 @@ const properties = [
     id: 2,
     price: "₹ 2.80 L/mo",
     title: "City Skyline View | Private Lift | Semi-Furnished",
-    location: "Prestige Kingfisher Towers, Bangalore",
+    location: "Bandra West , Mumbai",
     type: "Apartment",
     status: "Available",
     sqft: "8,321",
@@ -62,7 +62,7 @@ const properties = [
     id: 4,
     price: "₹ 95,000/mo",
     title: "Golf Course Extension | Spanish Villas | Furnished",
-    location: "Emaar Marbella, Gurgaon",
+    location: "Malabar Hill ,Mumbai",
     type: "Villa",
     status: "Available",
     sqft: "5,600",
@@ -79,7 +79,7 @@ const properties = [
     id: 5,
     price: "₹ 75,000/mo",
     title: "Lakeside Living | Signature Development",
-    location: "Sobha City, Bangalore",
+    location: "Andheri, Mumbai",
     type: "Apartment",
     status: "Available",
     sqft: "3,200",
@@ -96,7 +96,7 @@ const properties = [
     id: 6,
     price: "₹ 55,000/mo",
     title: "Golf Links | Modern Villas | Golf Views",
-    location: "Godrej Golf Links, Noida",
+    location: "Goregaon , Mumbai",
     type: "Villa",
     status: "Coming Soon",
     sqft: "2,480",
@@ -149,7 +149,7 @@ const luxurydetails = [
     id: 2,
     name: "DLF The Camellias",
     price: "₹3–8 L/mo",
-    location: "Gurgaon, Haryana",
+    location: "Mumbai, Maharashtra",
     builder: "DLF Limited",
   },
   {
@@ -163,7 +163,7 @@ const luxurydetails = [
     id: 4,
     name: "Kingfisher Towers",
     price: "₹1.5–4 L/mo",
-    location: "Bangalore, Karnataka",
+    location: "Mumbai, Maharashtra",
     builder: "Prestige Group",
   },
 ];
@@ -279,7 +279,7 @@ export default function PropertyRent() {
               </svg>
               <input
                 type="text"
-                placeholder="City, area (e.g. Mumbai, Bangalore)..."
+                placeholder="City, area (e.g. Mumbai)"
                 className="w-full bg-transparent text-sm font-medium focus:outline-none text-gray-800 placeholder-gray-500"
                 value={searchText}
                 onChange={(e) => setSearchText(e.target.value)}
@@ -363,7 +363,7 @@ export default function PropertyRent() {
               d="M9 5l7 7-7 7"
             />
           </svg>
-          <span className="text-gray-800">Properties for Rent in India</span>
+          <span className="text-gray-800">Properties for Rent in Mumbai</span>
         </div>
       </div>
 
@@ -374,7 +374,7 @@ export default function PropertyRent() {
           <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
             <div>
               <h1 className="text-3xl font-extrabold text-gray-900 tracking-tight">
-                Properties for Rent in India
+                Properties for Rent in Mumbai
               </h1>
               <p className="text-gray-600 text-[15px] mt-1.5 font-medium">
                 <span className="font-bold text-blue-600">
@@ -670,7 +670,7 @@ export default function PropertyRent() {
       <div className="bg-[#101010] py-16 px-6">
         <div className="max-w-7xl mx-auto">
           <h1 className="text-2xl md:text-4xl font-medium text-white mb-4">
-            Most Trending Rentals in India
+            Most Trending Rentals in Mumbai
           </h1>
           <div className="mb-6">
             <span className="text-black rounded-full bg-white px-6 py-2 inline-block hover:bg-black hover:text-white cursor-pointer transition-colors">

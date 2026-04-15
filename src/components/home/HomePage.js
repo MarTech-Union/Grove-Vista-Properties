@@ -12,7 +12,7 @@ const properties = [
     id: 1,
     price: "INR 45.00 Cr",
     title: "Golf Course View | Ultra Luxury | Ready",
-    location: "DLF The Camellias, Gurgaon, NCR",
+    location: "Juhu, Mumbai",
     beds: 4,
     baths: 5,
     area: "7,100",
@@ -22,7 +22,7 @@ const properties = [
     id: 2,
     price: "INR 35.50 Cr",
     title: "City Skyline View | Private Lift | Upgraded",
-    location: "Prestige Kingfisher Towers, Bangalore",
+    location: "Andheri , Mumbai",
     beds: 4,
     baths: 5,
     area: "8,321",
@@ -114,7 +114,7 @@ export default function HomePage() {
         <div className="relative z-10 mx-auto max-w-4xl px-4 pt-20 text-center">
           <h1 className="mb-6 text-4xl font-bold leading-tight tracking-tight text-white md:text-6xl">
             Find Your Dream
-            <span className="block text-blue-300 drop-shadow-lg">Property in India</span>
+            <span className="block text-blue-300 drop-shadow-lg">Property in Mumbai</span>
           </h1>
           <p className="mx-auto mb-12 max-w-2xl text-lg font-medium text-slate-100 drop-shadow-md">
             Explore thousands of verified listings with exclusive deals and expert guidance across India.
@@ -149,7 +149,7 @@ export default function HomePage() {
                 </svg>
                 <input
                   type="text"
-                  placeholder="Search by city (Mumbai, Bangalore, Gurgaon)..."
+                  placeholder="Search by city (Mumbai)"
                   className="w-full bg-transparent py-4 text-[15px] font-medium text-slate-800 placeholder:text-slate-500 focus:outline-none"
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
@@ -202,7 +202,7 @@ export default function HomePage() {
           <div className="mb-12 flex flex-col items-start justify-between gap-6 md:flex-row md:items-end">
             <div>
               <p className="mb-3 text-sm font-bold uppercase tracking-widest text-blue-600">Featured Listings</p>
-              <h2 className="text-3xl font-extrabold text-slate-900 md:text-5xl">Explore Property Across India</h2>
+              <h2 className="text-3xl font-extrabold text-slate-900 md:text-5xl">Explore Property Across Mumbai</h2>
             </div>
 
             <div className="flex flex-wrap items-center gap-4">

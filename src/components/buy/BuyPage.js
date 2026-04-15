@@ -11,7 +11,7 @@ const properties = [
     price: "INR 45.00 Cr",
     priceCr: 45,
     title: "Golf Course View | Ultra Luxury | Ready",
-    location: "DLF The Camellias, Gurgaon, NCR",
+    location: "Mulund , Mumbai",
     type: "Apartment",
     status: "Ready",
     sqft: "7,100",
@@ -27,7 +27,7 @@ const properties = [
     price: "INR 35.50 Cr",
     priceCr: 35.5,
     title: "City Skyline View | Private Lift | Upgraded",
-    location: "Prestige Kingfisher Towers, Bangalore",
+    location: "Vasai,Mumbai",
     type: "Apartment",
     status: "Ready",
     sqft: "8,321",
@@ -59,7 +59,7 @@ const properties = [
     price: "INR 12.00 Cr",
     priceCr: 12,
     title: "Golf Course Extension | Spanish Villas",
-    location: "Emaar Marbella, Gurgaon",
+    location: "Panvel, Mumbai",
     type: "Villa",
     status: "Ready",
     sqft: "5,600",
@@ -75,7 +75,7 @@ const properties = [
     price: "INR 8.50 Cr",
     priceCr: 8.5,
     title: "Lakeside Living | Signature Development",
-    location: "Sobha City, Bangalore",
+    location: "Worli, Mumbai",
     type: "Apartment",
     status: "Ready",
     sqft: "3,200",
@@ -91,7 +91,7 @@ const properties = [
     price: "INR 5.00 Cr",
     priceCr: 5,
     title: "Golf Links | Modern Villas | Golf Views",
-    location: "Godrej Golf Links, Noida",
+    location: "Andheri, Mumbai",
     type: "Villa",
     status: "Off Plan",
     sqft: "2,480",
@@ -146,7 +146,7 @@ const luxuryDetails = [
     id: 2,
     name: "DLF The Camellias",
     price: "INR 40 Cr - 100 Cr",
-    location: "Gurgaon, Haryana",
+    location: "Mumbai, Maharashtra",
     builder: "DLF Limited",
     image: "https://images.unsplash.com/photo-1480074568708-e7b720bb3f09?auto=format&fit=crop&w=1200&q=80",
   },
@@ -162,7 +162,7 @@ const luxuryDetails = [
     id: 4,
     name: "Kingfisher Towers",
     price: "INR 20 Cr - 50 Cr",
-    location: "Bangalore, Karnataka",
+    location: "Mumbai, Maharashtra",
     builder: "Prestige Group",
     image: "https://images.unsplash.com/photo-1472224371017-08207f84aaae?auto=format&fit=crop&w=1200&q=80",
   },
@@ -284,7 +284,7 @@ export default function BuyPage() {
               </svg>
               <input
                 type="text"
-                placeholder="City, area (Mumbai, Bangalore)..."
+                placeholder="City, area (Mumbai)"
                 className="w-full bg-transparent text-[14px] font-medium text-slate-800 placeholder:text-slate-500 focus:outline-none"
                 value={searchText}
                 onChange={(e) => setSearchText(e.target.value)}
@@ -331,14 +331,14 @@ export default function BuyPage() {
           <svg className="h-4 w-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
           </svg>
-          <span className="text-slate-800">Properties for Sale in India</span>
+          <span className="text-slate-800">Properties for Sale in Mumbai</span>
         </div>
       </div>
 
       <main className="mx-auto mt-2 max-w-7xl px-4 pb-20 sm:px-6">
         <div className="mb-8 flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-center">
           <div>
-            <h1 className="text-3xl font-extrabold tracking-tight text-slate-900">Properties for Sale in India</h1>
+            <h1 className="text-3xl font-extrabold tracking-tight text-slate-900">Properties for Sale in Mumbai</h1>
             <p className="mt-1.5 text-[15px] font-medium text-slate-600">
               <span className="font-bold text-blue-600">{filteredProperties.length}</span> premium listings found
             </p>
@@ -519,7 +519,7 @@ export default function BuyPage() {
 
       <section className="bg-[#101010] px-6 py-16">
         <div className="mx-auto max-w-7xl p-5">
-          <h2 className="mb-4 text-2xl font-medium text-white md:text-4xl">Most Trending Projects in India</h2>
+          <h2 className="mb-4 text-2xl font-medium text-white md:text-4xl">Most Trending Projects in Mumbai</h2>
           <div className="p-5">
             <span className="inline-block rounded-full bg-white px-6 py-2 text-black transition hover:bg-black hover:text-white">Luxury</span>
           </div>
