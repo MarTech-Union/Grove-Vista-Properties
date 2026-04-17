@@ -11,7 +11,7 @@ const menuData = {
     path: null,
     sections: [
       {
-        heading:"Properties in Mumbai",
+        heading: "Properties in Mumbai",
         items: [
           "Properties for Sale",
           "Properties for Rent",
@@ -65,7 +65,7 @@ const menuData = {
     path: null,
     sections: [
       {
-        heading:"Trusted Developers",
+        heading: "Trusted Developers",
         items: [
           "Lodha Group",
           "Oberoi Realty",
@@ -95,7 +95,7 @@ const menuData = {
 const menuItemRoutes = {
   "Properties for Sale": "/buy",
   "Properties for Rent": "/rent",
-  "Off-Plan Properties": "/",
+  "Off-Plan Properties": "/off-plan",
   Newsletter: "/newsletter-subscribe",
   "About Us": "/about",
   Testimonials: "/testimonials",
@@ -235,7 +235,7 @@ export default function Header() {
 
         <div className="hidden shrink-0 items-center gap-3 lg:flex">
           <a
-            href="tel:+919999999999"
+            href="tel:+919082799951"
             className="flex items-center gap-2 text-[13px] font-bold text-slate-700 transition-colors hover:text-blue-600"
           >
             <span className="flex h-8 w-8 items-center justify-center rounded-full bg-blue-50">
@@ -257,6 +257,29 @@ export default function Header() {
             +91 9082799951
           </a>
 
+          <div className="h-6 w-px bg-slate-200" />
+          <a
+            href="tel:+918928799951"
+            className="flex items-center gap-2 text-[13px] font-bold text-slate-700 transition-colors hover:text-blue-600"
+          >
+            <span className="flex h-8 w-8 items-center justify-center rounded-full bg-blue-50">
+              <svg
+                className="h-4 w-4 text-blue-600"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
+                />
+              </svg>
+            </span>
+            +91 8928799951
+          </a>
           <div className="h-6 w-px bg-slate-200" />
 
           <button

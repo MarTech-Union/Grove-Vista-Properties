@@ -17,7 +17,8 @@ const properties = [
     sqft: "7,100",
     beds: 4,
     baths: 5,
-    image: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1400&q=80",
+    image:
+      "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1400&q=80",
     description:
       "Stunning ultra-luxury apartment with golf course views. A masterclass in luxury living offering exquisite amenities and a high-profile neighborhood in Gurgaon.",
     tag: "HOT DEAL",
@@ -33,7 +34,8 @@ const properties = [
     sqft: "8,321",
     beds: 4,
     baths: 5,
-    image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1400&q=80",
+    image:
+      "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1400&q=80",
     description:
       "Luxurious apartment with spectacular city skyline views. Upgraded with premium finishes and exclusive private elevators in the business hub of Bangalore.",
     tag: "PREMIUM",
@@ -49,7 +51,8 @@ const properties = [
     sqft: "1,608",
     beds: 3,
     baths: 3,
-    image: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1400&q=80",
+    image:
+      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1400&q=80",
     description:
       "Elegant corner unit with Arabian Sea views in a signature-branded residence. A luxury three-bedroom apartment with world-class amenities.",
     tag: "OFF PLAN",
@@ -65,7 +68,8 @@ const properties = [
     sqft: "5,600",
     beds: 5,
     baths: 5,
-    image: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=1400&q=80",
+    image:
+      "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=1400&q=80",
     description:
       "Breathtaking Spanish-style villa located in the heart of Gurgaon. Turnkey investment offering premium amenities and lush green surroundings.",
     tag: "FURNISHED",
@@ -81,7 +85,8 @@ const properties = [
     sqft: "3,200",
     beds: 4,
     baths: 4,
-    image: "https://images.unsplash.com/photo-1580587771525-78b9dba3b914?auto=format&fit=crop&w=1400&q=80",
+    image:
+      "https://images.unsplash.com/photo-1580587771525-78b9dba3b914?auto=format&fit=crop&w=1400&q=80",
     description:
       "Iconic lakeside apartment with unmatched luxury and stunning spaces. Exquisite four-bedroom residence designed for modern living.",
     tag: "EXCLUSIVE",
@@ -97,7 +102,8 @@ const properties = [
     sqft: "2,480",
     beds: 3,
     baths: 3,
-    image: "https://images.unsplash.com/photo-1574362848149-11496d93a7c7?auto=format&fit=crop&w=1400&q=80",
+    image:
+      "https://images.unsplash.com/photo-1574362848149-11496d93a7c7?auto=format&fit=crop&w=1400&q=80",
     description:
       "Smart villa in the heart of Noida with golf course views. A strong off-plan investment with healthy rental yield potential.",
     tag: "OFF PLAN",
@@ -117,19 +123,22 @@ const experts = [
     name: "Sahil Maurya",
     role: "Consultant - Secondary Sales",
     languages: "English, Hindi",
-    image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=900&q=80",
+    image:
+      "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=900&q=80",
   },
   {
     name: "Manish Singh",
     role: "Consultant - Primary Sales",
     languages: "English",
-    image: "https://images.unsplash.com/photo-1557862921-37829c790f19?auto=format&fit=crop&w=900&q=80",
+    image:
+      "https://images.unsplash.com/photo-1557862921-37829c790f19?auto=format&fit=crop&w=900&q=80",
   },
   {
     name: "Raj Dubey",
     role: "Consultant - Primary Sales",
     languages: "English, Hindi",
-    image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=900&q=80",
+    image:
+      "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=900&q=80",
   },
 ];
 
@@ -140,7 +149,8 @@ const luxuryDetails = [
     price: "INR 15,000 Cr",
     location: "Mumbai, Maharashtra",
     builder: "Reliance Industries",
-    image: "https://images.unsplash.com/photo-1479839672679-a46483c0e7c8?auto=format&fit=crop&w=1200&q=80",
+    image:
+      "https://images.unsplash.com/photo-1479839672679-a46483c0e7c8?auto=format&fit=crop&w=1200&q=80",
   },
   {
     id: 2,
@@ -148,7 +158,8 @@ const luxuryDetails = [
     price: "INR 40 Cr - 100 Cr",
     location: "Mumbai, Maharashtra",
     builder: "DLF Limited",
-    image: "https://images.unsplash.com/photo-1480074568708-e7b720bb3f09?auto=format&fit=crop&w=1200&q=80",
+    image:
+      "https://images.unsplash.com/photo-1480074568708-e7b720bb3f09?auto=format&fit=crop&w=1200&q=80",
   },
   {
     id: 3,
@@ -156,7 +167,8 @@ const luxuryDetails = [
     price: "INR 25 Cr - 80 Cr",
     location: "Mumbai, Maharashtra",
     builder: "Lodha Group",
-    image: "https://images.unsplash.com/photo-1479839672679-a46483c0e7c8?auto=format&fit=crop&w=1200&q=80",
+    image:
+      "https://images.unsplash.com/photo-1479839672679-a46483c0e7c8?auto=format&fit=crop&w=1200&q=80",
   },
   {
     id: 4,
@@ -164,7 +176,8 @@ const luxuryDetails = [
     price: "INR 20 Cr - 50 Cr",
     location: "Mumbai, Maharashtra",
     builder: "Prestige Group",
-    image: "https://images.unsplash.com/photo-1472224371017-08207f84aaae?auto=format&fit=crop&w=1200&q=80",
+    image:
+      "https://images.unsplash.com/photo-1472224371017-08207f84aaae?auto=format&fit=crop&w=1200&q=80",
   },
 ];
 
@@ -178,7 +191,8 @@ const faqs = [
   {
     id: 2,
     question: "What are the stamp duty charges in Mumbai?",
-    answer: "Stamp duty in Mumbai is usually around 5% of the property value, along with 1% registration charges.",
+    answer:
+      "Stamp duty in Mumbai is usually around 5% of the property value, along with 1% registration charges.",
   },
   {
     id: 3,
@@ -189,7 +203,8 @@ const faqs = [
   {
     id: 4,
     question: "Which are the best areas to invest in Mumbai real estate?",
-    answer: "Popular areas include Bandra, Andheri, Powai, Thane, and Navi Mumbai due to good connectivity and infrastructure.",
+    answer:
+      "Popular areas include Bandra, Andheri, Powai, Thane, and Navi Mumbai due to good connectivity and infrastructure.",
   },
   {
     id: 5,
@@ -222,16 +237,26 @@ export default function BuyPage() {
   const [openId, setOpenId] = useState(null);
 
   const statusFilters = ["Any", "Ready", "Off Plan"];
-  const sortOptions = ["Most Recent", "Price: Low to High", "Price: High to Low", "Most Popular"];
+  const sortOptions = [
+    "Most Recent",
+    "Price: Low to High",
+    "Price: High to Low",
+    "Most Popular",
+  ];
 
   const filteredProperties = useMemo(() => {
     const base = properties.filter((property) => {
-      if (activeFilter !== "Any" && property.status !== activeFilter) return false;
-      if (propertyType !== "Any Type" && property.type !== propertyType) return false;
+      if (activeFilter !== "Any" && property.status !== activeFilter)
+        return false;
+      if (propertyType !== "Any Type" && property.type !== propertyType)
+        return false;
       if (!withinPriceRange(property.priceCr, priceRange)) return false;
       if (searchText) {
         const q = searchText.toLowerCase();
-        if (!property.title.toLowerCase().includes(q) && !property.location.toLowerCase().includes(q)) {
+        if (
+          !property.title.toLowerCase().includes(q) &&
+          !property.location.toLowerCase().includes(q)
+        ) {
           return false;
         }
       }
@@ -253,7 +278,9 @@ export default function BuyPage() {
 
   const toggleSave = (propertyId) => {
     setSavedProperties((prev) =>
-      prev.includes(propertyId) ? prev.filter((id) => id !== propertyId) : [...prev, propertyId]
+      prev.includes(propertyId)
+        ? prev.filter((id) => id !== propertyId)
+        : [...prev, propertyId],
     );
   };
 
@@ -279,8 +306,19 @@ export default function BuyPage() {
         <div className="mx-auto max-w-7xl px-4 py-4 sm:px-6">
           <div className="flex flex-wrap items-center gap-3">
             <div className="flex min-w-[220px] flex-1 items-center gap-2 rounded-xl border border-white bg-white/50 px-4 py-2.5 shadow-sm backdrop-blur-md transition-all focus-within:border-blue-400 focus-within:bg-white">
-              <svg className="h-4 w-4 shrink-0 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+              <svg
+                className="h-4 w-4 shrink-0 text-blue-500"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                />
               </svg>
               <input
                 type="text"
@@ -316,20 +354,34 @@ export default function BuyPage() {
               <option value="Above 10 Cr">Above 10 Cr</option>
             </select>
 
-            <button className="rounded-xl bg-blue-600 px-7 py-[11px] text-[14px] font-bold text-white shadow-[0_4px_14px_0_rgba(37,99,235,0.39)] transition-all hover:bg-blue-700" type="button">
+            <button
+              className="rounded-xl bg-blue-600 px-7 py-[11px] text-[14px] font-bold text-white shadow-[0_4px_14px_0_rgba(37,99,235,0.39)] transition-all hover:bg-blue-700"
+              type="button"
+            >
               Search
             </button>
           </div>
         </div>
       </div>
 
-      <div className="mx-auto max-w-7xl px-4 py-4 sm:px-6">
+      <div className="mx-auto max-w-6xl px-4 py-4 sm:px-6">
         <div className="flex items-center gap-2 text-[13px] font-medium text-slate-500">
           <Link href="/" className="transition-colors hover:text-blue-600">
             Home
           </Link>
-          <svg className="h-4 w-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+          <svg
+            className="h-4 w-4 text-slate-400"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M9 5l7 7-7 7"
+            />
           </svg>
           <span className="text-slate-800">Properties for Sale in Mumbai</span>
         </div>
@@ -338,9 +390,14 @@ export default function BuyPage() {
       <main className="mx-auto mt-2 max-w-7xl px-4 pb-20 sm:px-6">
         <div className="mb-8 flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-center">
           <div>
-            <h1 className="text-3xl font-extrabold tracking-tight text-slate-900">Properties for Sale in Mumbai</h1>
+            <h1 className="text-3xl font-extrabold tracking-tight text-slate-900">
+              Properties for Sale in Mumbai
+            </h1>
             <p className="mt-1.5 text-[15px] font-medium text-slate-600">
-              <span className="font-bold text-blue-600">{filteredProperties.length}</span> premium listings found
+              <span className="font-bold text-blue-600">
+                {filteredProperties.length}
+              </span>{" "}
+              premium listings found
             </p>
           </div>
 
@@ -351,7 +408,9 @@ export default function BuyPage() {
                   key={filter}
                   onClick={() => setActiveFilter(filter)}
                   className={`rounded-[10px] px-5 py-1.5 text-[13px] font-bold transition-all ${
-                    activeFilter === filter ? "bg-white text-blue-700 shadow-sm" : "text-slate-600 hover:bg-white/50 hover:text-slate-900"
+                    activeFilter === filter
+                      ? "bg-white text-blue-700 shadow-sm"
+                      : "text-slate-600 hover:bg-white/50 hover:text-slate-900"
                   }`}
                   type="button"
                 >
@@ -376,8 +435,12 @@ export default function BuyPage() {
 
         {filteredProperties.length === 0 ? (
           <div className="rounded-3xl border border-white/60 bg-white/40 py-32 text-center shadow-lg backdrop-blur-md">
-            <p className="mb-2 text-2xl font-bold text-slate-800">No properties align with your search</p>
-            <p className="font-medium text-slate-500">Try adjusting your filters, location, or budget constraints.</p>
+            <p className="mb-2 text-2xl font-bold text-slate-800">
+              No properties align with your search
+            </p>
+            <p className="font-medium text-slate-500">
+              Try adjusting your filters, location, or budget constraints.
+            </p>
           </div>
         ) : (
           <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
@@ -402,19 +465,29 @@ export default function BuyPage() {
 
                     <div className="pointer-events-none absolute inset-x-3 bottom-0 h-2/3 rounded-b-2xl bg-gradient-to-t from-black/60 to-transparent" />
 
-                    <span className={`absolute left-6 top-6 rounded-full px-3 py-1.5 text-[11px] font-extrabold uppercase tracking-wider text-white shadow-md ${tagColors[property.tag] || "bg-blue-600"}`}>
+                    <span
+                      className={`absolute left-6 top-6 rounded-full px-3 py-1.5 text-[11px] font-extrabold uppercase tracking-wider text-white shadow-md ${tagColors[property.tag] || "bg-blue-600"}`}
+                    >
                       {property.tag}
                     </span>
 
                     <button
                       onClick={() => toggleSave(property.id)}
                       className={`absolute right-6 top-6 flex h-10 w-10 items-center justify-center rounded-full shadow-lg transition-all ${
-                        isSaved ? "bg-red-500 text-white hover:bg-red-600" : "bg-white/90 text-slate-500 backdrop-blur-md hover:bg-white hover:text-red-500"
+                        isSaved
+                          ? "bg-red-500 text-white hover:bg-red-600"
+                          : "bg-white/90 text-slate-500 backdrop-blur-md hover:bg-white hover:text-red-500"
                       }`}
                       aria-label="Save property"
                       type="button"
                     >
-                      <svg className="h-5 w-5 transition-transform hover:scale-110" fill={isSaved ? "currentColor" : "none"} stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                      <svg
+                        className="h-5 w-5 transition-transform hover:scale-110"
+                        fill={isSaved ? "currentColor" : "none"}
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                        aria-hidden="true"
+                      >
                         <path
                           strokeLinecap="round"
                           strokeLinejoin="round"
@@ -426,7 +499,9 @@ export default function BuyPage() {
 
                     <span
                       className={`absolute bottom-4 right-6 rounded-full px-3 py-1.5 text-[11.5px] font-bold text-white shadow-md ${
-                        property.status === "Ready" ? "bg-emerald-500" : "bg-amber-500"
+                        property.status === "Ready"
+                          ? "bg-emerald-500"
+                          : "bg-amber-500"
                       }`}
                     >
                       {property.status}
@@ -434,12 +509,20 @@ export default function BuyPage() {
                   </div>
 
                   <div className="flex flex-1 flex-col p-6">
-                    <h2 className="mb-1 text-[24px] font-extrabold tracking-tight text-slate-900">{property.price}</h2>
-                    <h3 className="mb-3 line-clamp-2 text-[14.5px] font-bold leading-snug text-slate-800">{property.title}</h3>
-                    <p className="mb-5 truncate text-[13px] font-medium text-slate-500">{property.location}</p>
+                    <h2 className="mb-1 text-[24px] font-extrabold tracking-tight text-slate-900">
+                      {property.price}
+                    </h2>
+                    <h3 className="mb-3 line-clamp-2 text-[14.5px] font-bold leading-snug text-slate-800">
+                      {property.title}
+                    </h3>
+                    <p className="mb-5 truncate text-[13px] font-medium text-slate-500">
+                      {property.location}
+                    </p>
 
                     <div className="mb-5 flex items-center justify-between rounded-xl border border-white/60 bg-white/40 p-3 text-[13px] font-bold text-slate-700 shadow-sm">
-                      <span>{property.beds > 0 ? `${property.beds} Beds` : "Studio"}</span>
+                      <span>
+                        {property.beds > 0 ? `${property.beds} Beds` : "Studio"}
+                      </span>
                       <span>{property.baths} Baths</span>
                       <span>{property.sqft} sqft</span>
                     </div>
@@ -456,13 +539,22 @@ export default function BuyPage() {
                     </p>
 
                     <div className="mt-auto flex gap-3">
-                      <button className="flex-1 rounded-xl bg-blue-600 py-3 text-[13px] font-bold text-white shadow-md shadow-blue-500/20 transition-all hover:bg-blue-700" type="button">
+                      <button
+                        className="flex-1 rounded-xl bg-blue-600 py-3 text-[13px] font-bold text-white shadow-md shadow-blue-500/20 transition-all hover:bg-blue-700"
+                        type="button"
+                      >
                         Book Viewing
                       </button>
-                      <button className="rounded-xl border border-slate-200 bg-white px-4 py-3 text-[13px] font-bold text-slate-700 shadow-sm transition-all hover:border-slate-300 hover:bg-slate-50" type="button">
+                      <button
+                        className="rounded-xl border border-slate-200 bg-white px-4 py-3 text-[13px] font-bold text-slate-700 shadow-sm transition-all hover:border-slate-300 hover:bg-slate-50"
+                        type="button"
+                      >
                         Call
                       </button>
-                      <button className="rounded-xl bg-green-500 px-4 py-3 text-[13px] font-bold text-white shadow-md shadow-green-500/20 transition-all hover:bg-green-600" type="button">
+                      <button
+                        className="rounded-xl bg-green-500 px-4 py-3 text-[13px] font-bold text-white shadow-md shadow-green-500/20 transition-all hover:bg-green-600"
+                        type="button"
+                      >
                         Chat
                       </button>
                     </div>
@@ -475,7 +567,10 @@ export default function BuyPage() {
 
         {filteredProperties.length > 0 && (
           <div className="mt-14 text-center">
-            <button className="rounded-xl border border-white bg-white/70 px-10 py-4 text-[14px] font-extrabold text-slate-800 shadow-lg transition-all hover:border-blue-400 hover:text-blue-700 hover:shadow-xl" type="button">
+            <button
+              className="rounded-xl border border-white bg-white/70 px-10 py-4 text-[14px] font-extrabold text-slate-800 shadow-lg transition-all hover:border-blue-400 hover:text-blue-700 hover:shadow-xl"
+              type="button"
+            >
               Load More Properties
             </button>
           </div>
@@ -484,30 +579,53 @@ export default function BuyPage() {
 
       <section className="mx-auto bg-slate-100 px-6 py-20">
         <div className="mx-auto max-w-6xl">
-          <h2 className="mb-12 text-3xl font-bold text-blue-900 md:text-4xl">Contact Property Expert in Mumbai</h2>
+          <h2 className="mb-12 text-3xl font-bold text-blue-900 md:text-4xl">
+            Contact Property Expert in Mumbai
+          </h2>
         </div>
 
         <div className="mx-auto grid max-w-6xl gap-6 md:grid-cols-3">
           {experts.map((expert) => (
-            <article key={expert.name} className="overflow-hidden rounded-xl border bg-white shadow-sm transition hover:shadow-md">
+            <article
+              key={expert.name}
+              className="overflow-hidden rounded-xl border bg-white shadow-sm transition hover:shadow-md"
+            >
               <div className="relative h-64">
-                <Image src={expert.image} alt={expert.name} fill className="object-cover" sizes="(max-width: 768px) 100vw, 33vw" />
+                <Image
+                  src={expert.image}
+                  alt={expert.name}
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                />
               </div>
 
               <div className="p-4">
-                <h3 className="text-lg font-bold text-slate-900">{expert.name}</h3>
+                <h3 className="text-lg font-bold text-slate-900">
+                  {expert.name}
+                </h3>
                 <p className="mb-2 text-sm text-slate-500">{expert.role}</p>
                 <p className="mb-4 text-sm text-slate-700">
-                  <span className="font-semibold">Languages:</span> {expert.languages}
+                  <span className="font-semibold">Languages:</span>{" "}
+                  {expert.languages}
                 </p>
                 <div className="flex items-center justify-between text-sm text-slate-600">
-                  <button className="transition-colors hover:text-blue-600" type="button">
+                  <button
+                    className="transition-colors hover:text-blue-600"
+                    type="button"
+                  >
                     Email
                   </button>
-                  <button className="transition-colors hover:text-blue-600" type="button">
+                  <button
+                    className="transition-colors hover:text-blue-600"
+                    type="button"
+                  >
                     Call
                   </button>
-                  <button className="transition-colors hover:text-green-600" type="button">
+                  <button
+                    className="transition-colors hover:text-green-600"
+                    type="button"
+                  >
                     WhatsApp
                   </button>
                 </div>
@@ -519,9 +637,13 @@ export default function BuyPage() {
 
       <section className="bg-[#101010] px-6 py-16">
         <div className="mx-auto max-w-7xl p-5">
-          <h2 className="mb-4 text-2xl font-medium text-white md:text-4xl">Most Trending Projects in Mumbai</h2>
+          <h2 className="mb-4 text-2xl font-medium text-white md:text-4xl">
+            Most Trending Projects in Mumbai
+          </h2>
           <div className="p-5">
-            <span className="inline-block rounded-full bg-white px-6 py-2 text-black transition hover:bg-black hover:text-white">Luxury</span>
+            <span className="inline-block rounded-full bg-white px-6 py-2 text-black transition hover:bg-black hover:text-white">
+              Luxury
+            </span>
           </div>
 
           <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
@@ -531,16 +653,28 @@ export default function BuyPage() {
                 className="overflow-hidden rounded-xl bg-black text-white shadow-sm transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_50px_-15px_rgba(0,0,0,0.1)]"
               >
                 <div className="relative h-72">
-                  <Image src={project.image} alt={project.name} fill className="object-cover" sizes="(max-width: 1024px) 100vw, 33vw" />
+                  <Image
+                    src={project.image}
+                    alt={project.name}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 1024px) 100vw, 33vw"
+                  />
                 </div>
 
                 <div className="p-3">
                   <div className="flex items-center justify-between">
-                    <h3 className="text-lg font-medium text-white">{project.name}</h3>
+                    <h3 className="text-lg font-medium text-white">
+                      {project.name}
+                    </h3>
                     <p className="text-sm text-white">{project.price}</p>
                   </div>
-                  <p className="p-1 text-sm font-semibold text-white">{project.location}</p>
-                  <p className="p-1 text-sm font-semibold text-white">{project.builder}</p>
+                  <p className="p-1 text-sm font-semibold text-white">
+                    {project.location}
+                  </p>
+                  <p className="p-1 text-sm font-semibold text-white">
+                    {project.builder}
+                  </p>
                 </div>
               </article>
             ))}
@@ -548,15 +682,20 @@ export default function BuyPage() {
         </div>
       </section>
 
-       <section className="px-6 py-10">
+      <section className="px-6 py-10">
         <div className="mx-auto max-w-7xl rounded-2xl bg-[#0b1b4a] px-8 py-10 md:px-20">
           <h2 className="pb-4 text-4xl font-bold">
             <span className="text-white">Get </span>
             <span className="text-green-500">INR 50,000 OFF</span>
           </h2>
-          <p className="font-normal text-white">Along with low interest and exclusive benefits on home loans today.</p>
+          <p className="font-normal text-white">
+            Along with low interest and exclusive benefits on home loans today.
+          </p>
           <div className="p-5">
-            <button className="inline-block rounded-full bg-white px-6 py-2 text-black transition hover:bg-black hover:text-white" type="button">
+            <button
+              className="inline-block rounded-full bg-white px-6 py-2 text-black transition hover:bg-black hover:text-white"
+              type="button"
+            >
               Learn More
             </button>
           </div>
@@ -565,7 +704,9 @@ export default function BuyPage() {
 
       <section className="bg-white px-6 py-12">
         <div className="mx-auto max-w-4xl">
-          <h2 className="mb-10 text-3xl font-semibold text-blue-950 md:text-4xl">Frequently Asked Questions</h2>
+          <h2 className="mb-10 text-3xl font-semibold text-blue-950 md:text-4xl">
+            Frequently Asked Questions
+          </h2>
 
           {faqs.map((item) => (
             <div key={item.id} className="border-b border-slate-200 py-6">
@@ -575,7 +716,9 @@ export default function BuyPage() {
                 type="button"
                 aria-expanded={openId === item.id}
               >
-                <h3 className="text-base font-semibold text-slate-900 md:text-lg">{item.question}</h3>
+                <h3 className="text-base font-semibold text-slate-900 md:text-lg">
+                  {item.question}
+                </h3>
                 <span
                   className={`text-xl font-bold text-blue-900 transition-transform duration-300 ${
                     openId === item.id ? "rotate-45" : "rotate-0"
@@ -591,14 +734,14 @@ export default function BuyPage() {
                   openId === item.id ? "mt-4 max-h-96" : "max-h-0"
                 }`}
               >
-                <p className="text-sm leading-relaxed md:text-base">{item.answer}</p>
+                <p className="text-sm leading-relaxed md:text-base">
+                  {item.answer}
+                </p>
               </div>
             </div>
           ))}
         </div>
       </section>
-
-     
     </div>
   );
 }
