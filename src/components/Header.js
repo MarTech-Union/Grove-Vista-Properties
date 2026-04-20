@@ -1,28 +1,30 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { useRef } from "react";
+
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 
 const menuData = {
-  "Property Listings": {
-    title: "Property Listings",
+  Listings: {
+    title: "Listings",
     path: null,
     sections: [
       {
-        heading: "Properties in Mumbai",
-        items: [
-          "Properties for Sale",
-          "Properties for Rent",
-          "Off-Plan Properties",
-        ],
+        heading: "Residential",
+        items: ["Sale", "Rent", "Off-Plan"],
+      },
+      {
+        heading: "Commercial",
+        items: ["Sale", "Rent", "Off-Plan"],
       },
     ],
   },
   Projects: {
     title: "New Projects in Mumbai",
-    path: null,
+    path: "",
     sections: [
       {
         heading: "Lodha Group",
@@ -60,7 +62,8 @@ const menuData = {
       },
     ],
   },
-  Developers: {
+
+  /* Developers: {
     title: "Top Developers",
     path: null,
     sections: [
@@ -75,27 +78,35 @@ const menuData = {
         ],
       },
     ],
+  },*/
+  AboutUs: {
+    title: "About Us",
+    path: "/about",
   },
-  More: {
-    title: "More",
+
+  Careers: {
+    title: "Careers",
+    path: "/careers",
+  },
+  Resources: {
+    title: "Resources",
     path: null,
     sections: [
-      {
+      /*  {
         heading: "Company",
         items: ["About Us", "Testimonials", "Careers"],
-      },
+      },*/
       {
-        heading: "Resources",
-        items: ["Blog", "Case Study", "FAQs", "Newsletter"],
+        items: ["Blogs", "FAQs"],
       },
     ],
   },
 };
 
 const menuItemRoutes = {
-  "Properties for Sale": "/buy",
-  "Properties for Rent": "/rent",
-  "Off-Plan Properties": "/off-plan",
+  Sale: "/buy",
+  Rent: "/rent",
+  "Off-Plan": "/off-plan",
   Newsletter: "/newsletter-subscribe",
   "About Us": "/about",
   Testimonials: "/testimonials",
@@ -103,9 +114,21 @@ const menuItemRoutes = {
   Careers: "/careers",
   Press: "/about",
   Blog: "/",
-  FAQs: "/contact",
+  FAQs: "/",
   "EMI Calculator": "/services/emiCalculator",
+
+  "Palava City (Navi Mumbai)": "/lodha",
+  "Lodha Wadala / New Cuffe Parade (Mumbai)": "/lodha",
+  "Lodha Byculla / South Mumbai Redevelopment Projects": "/lodha",
+
+  "Oberoi Garden City (Goregaon, Mumbai)": "/oberoi",
+  "Three Sixty West (Worli, Mumbai)": "/oberoi",
+  "Peddar Road Luxury Project (New Launch)": "/oberoi",
+
+  "Godrej Jardinia (Chembur, Mumbai)":"/godrej",
+          "Godrej Vikhroli Township / The Trees":"/godrej"
 };
+
 
 function isRoutable(path) {
   return typeof path === "string" && path.startsWith("/");
@@ -118,6 +141,8 @@ export default function Header() {
   const [scrolled, setScrolled] = useState(false);
 
   const router = useRouter();
+
+  const closeTimeout = useRef(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 10);
@@ -152,6 +177,7 @@ export default function Header() {
             width={180}
             height={45}
             priority
+            style={{ width: 180, height: "auto" }}
           />
         </Link>
 
@@ -160,8 +186,17 @@ export default function Header() {
             <div
               key={menu}
               className="relative"
-              onMouseEnter={() => setActiveMenu(menu)}
-              onMouseLeave={() => setActiveMenu(null)}
+              onMouseEnter={() => {
+                if (closeTimeout.current) {
+                  clearTimeout(closeTimeout.current);
+                }
+                setActiveMenu(menu);
+              }}
+              onMouseLeave={() => {
+                closeTimeout.current = setTimeout(() => {
+                  setActiveMenu(null);
+                }, 200); // small delay (200ms)
+              }}
             >
               <button
                 className={`flex items-center gap-1.5 rounded-lg px-3.5 py-2 text-[14px] font-semibold transition-all duration-200 ${
@@ -176,29 +211,46 @@ export default function Header() {
                 }}
                 type="button"
               >
-                {menu}
-                <svg
-                  className={`h-3.5 w-3.5 transition-transform duration-200 ${
-                    activeMenu === menu
-                      ? "rotate-180 text-blue-500"
-                      : "text-slate-400"
-                  }`}
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                  aria-hidden="true"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2.5}
-                    d="M19 9l-7 7-7-7"
-                  />
-                </svg>
+                {menu === "AboutUs" ? "About Us" : menu}
+
+                {data.sections && ( // ← only show arrow if there are dropdown sections
+                  <svg
+                    className={`h-3.5 w-3.5 transition-transform duration-200 ${
+                      activeMenu === menu
+                        ? "rotate-180 text-blue-500"
+                        : "text-slate-400"
+                    }`}
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2.5}
+                      d="M19 9l-7 7-7-7"
+                    />
+                  </svg>
+                )}
               </button>
 
-              {activeMenu === menu && (
-                <div className="absolute left-0 top-full z-50 mt-2 w-[580px] rounded-2xl border border-white/60 bg-white/95 p-6 shadow-[0_20px_60px_-10px_rgba(0,0,0,0.15)] backdrop-blur-2xl">
+              {activeMenu === menu && data.sections && (
+                <div
+                  className={`absolute left-0 top-full z-50 mt-2 rounded-2xl border border-white/60 bg-white/95 p-6 shadow-[0_20px_60px_-10px_rgba(0,0,0,0.15)] backdrop-blur-2xl ${
+                    menu === "Resources" ? "w-[180px]" : "w-[300px]" // ✅ Narrow width for Resources
+                  }`}
+                  onMouseEnter={() => {
+                    if (closeTimeout.current) {
+                      clearTimeout(closeTimeout.current);
+                    }
+                  }}
+                  onMouseLeave={() => {
+                    closeTimeout.current = setTimeout(() => {
+                      setActiveMenu(null);
+                    }, 200);
+                  }}
+                >
                   <div className="mb-5 flex items-center gap-2 border-b border-slate-100 pb-4">
                     <div className="h-5 w-1.5 rounded-full bg-blue-600" />
                     <h2 className="text-[13px] font-extrabold uppercase tracking-wider text-blue-600">
@@ -206,7 +258,14 @@ export default function Header() {
                     </h2>
                   </div>
 
-                  <div className="grid grid-cols-2 gap-6 max-h-80 overflow-y-auto pr-1">
+                  <div
+                    className={`max-h-60 overflow-y-auto pr-1 ${
+                      menu === "Resources"
+                        ? "flex flex-col gap-4"
+                        : "grid grid-cols-2 gap-4"
+                    }`}
+                  >
+                    {" "}
                     {data.sections.map((section, index) => (
                       <div key={section.heading || index}>
                         <p className="mb-3 text-[11px] font-extrabold uppercase tracking-widest text-slate-400">

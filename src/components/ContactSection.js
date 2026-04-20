@@ -224,9 +224,9 @@ export default function ContactSection() {
                 key={contact.label}
                 href={contact.href}
                 aria-label={contact.ariaLabel}
-                target="_blank"
+                target={contact.label === "Phone" ? "_self" : "_blank"}
                 rel="noopener noreferrer"
-                className="group flex items-center gap-4 p-4 backdrop-blur-md transition-all duration-300 hover:-translate-y-1"
+                className="group flex items-center gap-4 p-4 rounded-xl hover:bg-green-50 transition-all"
               >
                 {/* Icon Box */}
                 <div
