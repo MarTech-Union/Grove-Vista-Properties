@@ -25,6 +25,7 @@ const menuData = {
   Projects: {
     title: "New Projects in Mumbai",
     path: "",
+    showHeadingsOnly: true, // ← Only headings shown as clickable links
     sections: [
       {
         heading: "Lodha Group",
@@ -117,6 +118,13 @@ const menuItemRoutes = {
   FAQs: "/",
   "EMI Calculator": "/services/emiCalculator",
 
+  // Projects — heading-level routes
+  "Lodha Group": "/lodha",
+  "Oberoi & Others": "/oberoi",
+  "Godrej Properties": "/godrej",
+  "Piramal & Marathon": "/piramal",
+
+  // Projects — item-level routes (kept for reference / future use)
   "Palava City (Navi Mumbai)": "/lodha",
   "Lodha Wadala / New Cuffe Parade (Mumbai)": "/lodha",
   "Lodha Byculla / South Mumbai Redevelopment Projects": "/lodha",
@@ -125,10 +133,11 @@ const menuItemRoutes = {
   "Three Sixty West (Worli, Mumbai)": "/oberoi",
   "Peddar Road Luxury Project (New Launch)": "/oberoi",
 
-  "Godrej Jardinia (Chembur, Mumbai)":"/godrej",
-          "Godrej Vikhroli Township / The Trees":"/godrej"
-};
+  "Godrej Jardinia (Chembur, Mumbai)": "/godrej",
+  "Godrej Vikhroli Township / The Trees": "/godrej",
 
+  "FAQs":"/faq"
+};
 
 function isRoutable(path) {
   return typeof path === "string" && path.startsWith("/");
@@ -141,7 +150,6 @@ export default function Header() {
   const [scrolled, setScrolled] = useState(false);
 
   const router = useRouter();
-
   const closeTimeout = useRef(null);
 
   useEffect(() => {
@@ -152,10 +160,7 @@ export default function Header() {
 
   const navigateFromMenuItem = (item) => {
     const targetPath = menuItemRoutes[item];
-    if (!targetPath) {
-      return;
-    }
-
+    if (!targetPath) return;
     router.push(targetPath);
     setActiveMenu(null);
     setIsMobileMenuOpen(false);
@@ -181,21 +186,18 @@ export default function Header() {
           />
         </Link>
 
+        {/* ── Desktop Nav ── */}
         <nav className="hidden flex-1 justify-center lg:flex lg:items-center lg:gap-0.5">
           {Object.entries(menuData).map(([menu, data]) => (
             <div
               key={menu}
               className="relative"
               onMouseEnter={() => {
-                if (closeTimeout.current) {
-                  clearTimeout(closeTimeout.current);
-                }
+                if (closeTimeout.current) clearTimeout(closeTimeout.current);
                 setActiveMenu(menu);
               }}
               onMouseLeave={() => {
-                closeTimeout.current = setTimeout(() => {
-                  setActiveMenu(null);
-                }, 200); // small delay (200ms)
+                closeTimeout.current = setTimeout(() => setActiveMenu(null), 200);
               }}
             >
               <button
@@ -205,20 +207,16 @@ export default function Header() {
                     : "text-slate-700 hover:bg-slate-50 hover:text-blue-600"
                 }`}
                 onClick={() => {
-                  if (isRoutable(data.path)) {
-                    router.push(data.path);
-                  }
+                  if (isRoutable(data.path)) router.push(data.path);
                 }}
                 type="button"
               >
                 {menu === "AboutUs" ? "About Us" : menu}
 
-                {data.sections && ( // ← only show arrow if there are dropdown sections
+                {data.sections && (
                   <svg
                     className={`h-3.5 w-3.5 transition-transform duration-200 ${
-                      activeMenu === menu
-                        ? "rotate-180 text-blue-500"
-                        : "text-slate-400"
+                      activeMenu === menu ? "rotate-180 text-blue-500" : "text-slate-400"
                     }`}
                     fill="none"
                     stroke="currentColor"
@@ -235,22 +233,20 @@ export default function Header() {
                 )}
               </button>
 
+              {/* Desktop Dropdown */}
               {activeMenu === menu && data.sections && (
                 <div
                   className={`absolute left-0 top-full z-50 mt-2 rounded-2xl border border-white/60 bg-white/95 p-6 shadow-[0_20px_60px_-10px_rgba(0,0,0,0.15)] backdrop-blur-2xl ${
-                    menu === "Resources" ? "w-[180px]" : "w-[300px]" // ✅ Narrow width for Resources
+                    menu === "Resources" ? "w-[180px]" : "w-[300px]"
                   }`}
                   onMouseEnter={() => {
-                    if (closeTimeout.current) {
-                      clearTimeout(closeTimeout.current);
-                    }
+                    if (closeTimeout.current) clearTimeout(closeTimeout.current);
                   }}
                   onMouseLeave={() => {
-                    closeTimeout.current = setTimeout(() => {
-                      setActiveMenu(null);
-                    }, 200);
+                    closeTimeout.current = setTimeout(() => setActiveMenu(null), 200);
                   }}
                 >
+                  {/* Dropdown header */}
                   <div className="mb-5 flex items-center gap-2 border-b border-slate-100 pb-4">
                     <div className="h-5 w-1.5 rounded-full bg-blue-600" />
                     <h2 className="text-[13px] font-extrabold uppercase tracking-wider text-blue-600">
@@ -258,33 +254,46 @@ export default function Header() {
                     </h2>
                   </div>
 
+                  {/* Dropdown body */}
                   <div
                     className={`max-h-60 overflow-y-auto pr-1 ${
-                      menu === "Resources"
-                        ? "flex flex-col gap-4"
+                      menu === "Resources" || data.showHeadingsOnly
+                        ? "flex flex-col gap-1"
                         : "grid grid-cols-2 gap-4"
                     }`}
                   >
-                    {" "}
-                    {data.sections.map((section, index) => (
-                      <div key={section.heading || index}>
-                        <p className="mb-3 text-[11px] font-extrabold uppercase tracking-widest text-slate-400">
+                    {data.sections.map((section, index) =>
+                      data.showHeadingsOnly ? (
+                        // ── Projects: one clickable button per heading ──
+                        <button
+                          key={section.heading || index}
+                          className="cursor-pointer py-1.5 text-left text-[14px] font-medium text-slate-700 transition-all duration-150 hover:translate-x-1 hover:text-blue-600"
+                          onClick={() => navigateFromMenuItem(section.heading)}
+                          type="button"
+                        >
                           {section.heading}
-                        </p>
-                        <div className="flex flex-col gap-1">
-                          {section.items.map((item) => (
-                            <button
-                              key={item}
-                              className="cursor-pointer py-1 text-left text-[14px] font-medium text-slate-700 transition-all duration-150 hover:translate-x-1 hover:text-blue-600"
-                              onClick={() => navigateFromMenuItem(item)}
-                              type="button"
-                            >
-                              {item}
-                            </button>
-                          ))}
+                        </button>
+                      ) : (
+                        // ── All other menus: heading label + item list ──
+                        <div key={section.heading || index}>
+                          <p className="mb-3 text-[11px] font-extrabold uppercase tracking-widest text-slate-400">
+                            {section.heading}
+                          </p>
+                          <div className="flex flex-col gap-1">
+                            {section.items.map((item) => (
+                              <button
+                                key={item}
+                                className="cursor-pointer py-1 text-left text-[14px] font-medium text-slate-700 transition-all duration-150 hover:translate-x-1 hover:text-blue-600"
+                                onClick={() => navigateFromMenuItem(item)}
+                                type="button"
+                              >
+                                {item}
+                              </button>
+                            ))}
+                          </div>
                         </div>
-                      </div>
-                    ))}
+                      )
+                    )}
                   </div>
                 </div>
               )}
@@ -292,6 +301,7 @@ export default function Header() {
           ))}
         </nav>
 
+        {/* ── Desktop CTA ── */}
         <div className="hidden shrink-0 items-center gap-3 lg:flex">
           <a
             href="tel:+919082799951"
@@ -317,6 +327,7 @@ export default function Header() {
           </a>
 
           <div className="h-6 w-px bg-slate-200" />
+
           <a
             href="tel:+918928799951"
             className="flex items-center gap-2 text-[13px] font-bold text-slate-700 transition-colors hover:text-blue-600"
@@ -339,6 +350,7 @@ export default function Header() {
             </span>
             +91 8928799951
           </a>
+
           <div className="h-6 w-px bg-slate-200" />
 
           <button
@@ -350,6 +362,7 @@ export default function Header() {
           </button>
         </div>
 
+        {/* ── Mobile Hamburger ── */}
         <button
           className="rounded-xl p-2.5 text-slate-600 transition-colors hover:bg-slate-100 lg:hidden"
           onClick={() => setIsMobileMenuOpen((prev) => !prev)}
@@ -383,6 +396,7 @@ export default function Header() {
         </button>
       </div>
 
+      {/* ── Mobile Menu ── */}
       {isMobileMenuOpen && (
         <div className="max-h-[80vh] overflow-y-auto border-t border-slate-100 bg-white/98 shadow-2xl backdrop-blur-2xl lg:hidden">
           <div className="space-y-1 px-4 py-4">
@@ -390,51 +404,69 @@ export default function Header() {
               <div key={menu}>
                 <button
                   className="flex w-full items-center justify-between rounded-xl px-4 py-3 text-[14px] font-bold text-slate-800 transition-all hover:bg-blue-50/50 hover:text-blue-600"
-                  onClick={() =>
-                    setMobileExpanded((prev) => (prev === menu ? null : menu))
-                  }
+                  onClick={() => {
+                    if (isRoutable(data.path)) {
+                      router.push(data.path);
+                      setIsMobileMenuOpen(false);
+                    } else {
+                      setMobileExpanded((prev) => (prev === menu ? null : menu));
+                    }
+                  }}
                   type="button"
                 >
-                  <span>{menu}</span>
-                  <svg
-                    className={`h-4 w-4 transition-transform duration-200 ${
-                      mobileExpanded === menu
-                        ? "rotate-180 text-blue-500"
-                        : "text-slate-400"
-                    }`}
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                    aria-hidden="true"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2.5}
-                      d="M19 9l-7 7-7-7"
-                    />
-                  </svg>
+                  <span>{menu === "AboutUs" ? "About Us" : menu}</span>
+                  {data.sections && (
+                    <svg
+                      className={`h-4 w-4 transition-transform duration-200 ${
+                        mobileExpanded === menu ? "rotate-180 text-blue-500" : "text-slate-400"
+                      }`}
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                      aria-hidden="true"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2.5}
+                        d="M19 9l-7 7-7-7"
+                      />
+                    </svg>
+                  )}
                 </button>
 
-                {mobileExpanded === menu && (
+                {mobileExpanded === menu && data.sections && (
                   <div className="mb-2 ml-4 border-l-2 border-blue-100 pl-4 pt-1">
-                    {data.sections.map((section) => (
-                      <div key={section.heading} className="py-2">
-                        <p className="mb-2 text-[10.5px] font-extrabold uppercase tracking-widest text-slate-400">
+                    {data.sections.map((section, index) =>
+                      data.showHeadingsOnly ? (
+                        // ── Projects: one clickable button per heading ──
+                        <button
+                          key={section.heading || index}
+                          className="block py-1.5 text-[14px] font-medium text-slate-600 transition-colors hover:text-blue-600"
+                          onClick={() => navigateFromMenuItem(section.heading)}
+                          type="button"
+                        >
                           {section.heading}
-                        </p>
-                        {section.items.map((item) => (
-                          <button
-                            key={item}
-                            className="block py-1.5 text-[14px] font-medium text-slate-600 transition-colors hover:text-blue-600"
-                            onClick={() => navigateFromMenuItem(item)}
-                            type="button"
-                          >
-                            {item}
-                          </button>
-                        ))}
-                      </div>
-                    ))}
+                        </button>
+                      ) : (
+                        // ── All other menus: heading label + item list ──
+                        <div key={section.heading || index} className="py-2">
+                          <p className="mb-2 text-[10.5px] font-extrabold uppercase tracking-widest text-slate-400">
+                            {section.heading}
+                          </p>
+                          {section.items.map((item) => (
+                            <button
+                              key={item}
+                              className="block py-1.5 text-[14px] font-medium text-slate-600 transition-colors hover:text-blue-600"
+                              onClick={() => navigateFromMenuItem(item)}
+                              type="button"
+                            >
+                              {item}
+                            </button>
+                          ))}
+                        </div>
+                      )
+                    )}
                   </div>
                 )}
               </div>
@@ -442,7 +474,7 @@ export default function Header() {
 
             <div className="mt-3 space-y-3 border-t border-slate-100 pt-4">
               <a
-                href="tel:+919999999999"
+                href="tel:+919082799951"
                 className="flex w-full items-center justify-center gap-2 rounded-xl border border-slate-200 py-3 text-[14px] font-bold text-slate-700 hover:bg-slate-50"
               >
                 <svg
