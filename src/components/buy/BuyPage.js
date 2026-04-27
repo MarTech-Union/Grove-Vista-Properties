@@ -304,7 +304,7 @@ export default function BuyPage() {
 
       <div className="sticky top-20 z-40 border-b border-white/60 bg-white/70 shadow-[0_8px_30px_rgb(0,0,0,0.04)] backdrop-blur-xl">
         <div className="mx-auto max-w-7xl px-4 py-4 sm:px-6">
-          <div className="flex flex-wrap items-center gap-3">
+          <div className="flex flex-wrap items-center gap-3 mt-5">
             <div className="flex min-w-[220px] flex-1 items-center gap-2 rounded-xl border border-white bg-white/50 px-4 py-2.5 shadow-sm backdrop-blur-md transition-all focus-within:border-blue-400 focus-within:bg-white">
               <svg
                 className="h-4 w-4 shrink-0 text-blue-500"

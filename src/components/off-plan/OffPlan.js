@@ -86,7 +86,7 @@ function PropertyCard({ property }) {
           </span>
         </div>
       </div>
-      <div className="flex flex-1 flex-col gap-4 p-5">
+      <div className="flex flex-1 flex-col gap-4 p-5 ">
         <p className="line-clamp-2 text-[14.5px] font-bold leading-snug text-slate-800">
           {property.name}
         </p>
@@ -148,7 +148,7 @@ export default function OffPlanPage() {
       <section className="top-[100px] z-30 border-b border-slate-200 bg-white/95 backdrop-blur-xl shadow-sm">
         <div className="mx-auto flex max-w-7xl flex-col gap-4 px-4 py-4 sm:flex-row sm:items-center sm:justify-between sm:px-6">
           {/* Developer Filter Pills */}
-          <div className="flex flex-wrap gap-2">
+          <div className="flex flex-wrap gap-2 mt-5">
             {FILTERS.map((f) => (
               <button
                 key={f}

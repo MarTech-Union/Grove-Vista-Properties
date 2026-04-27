@@ -6,57 +6,74 @@ import Link from "next/link";
 
 const storyCards = [
   {
-    title: "people first",
-    desc: "WE prioritise our people in everything we do: employees, customers, and all stakeholders.",
+    title: "Affordability",
+    desc: "We believe quality homes should be accessible to every family — delivering value without compromise.",
   },
   {
-    title: "Quality",
-    desc: "WE achieve our desired results and strive for continual improvement.",
+    title: "Scale",
+    desc: "From Dombivli to Panvel, we build large integrated townships that create entire self-sufficient communities.",
   },
   {
-    title: "Integrity",
-    desc: "WE are consistently honest, transparent, and accountable.",
+    title: "Trust",
+    desc: "Decades of on-time delivery and transparent dealings have made us one of Mumbai's most trusted developers.",
   },
   {
-    title: "Innovation",
-    desc: "We transform imagination into reality",
+    title: "Sustainability",
+    desc: "We design townships with schools, hospitals, and retail built-in — reducing dependence on city infrastructure.",
   },
 ];
 
-const godrejProjects = [
+const marathonProjects = [
   {
     id: 1,
-    name: "Godrej Jardinia",
-    price: "₹2.2 Cr – ₹6 Cr",
-    title: "Modern Living | Premium Residences in Chembur",
-    location: "Chembur, Mumbai",
+    name: "Marathon Nextown",
+    price: "₹55 L – ₹1.8 Cr",
+    title: "Affordable Smart Homes | Dombivli",
+    location: "Dombivli, Thane",
     status: "Under Construction",
-    area: "Land Parcel with Open Greens",
-    configs: "2, 3, 4 BHK",
-    possession: "2027 (Expected)",
+    area: "100+ Acres",
+    configs: "1, 2, 3 BHK",
+    possession: "2026–2028 (Phase-wise)",
     description:
-      "Godrej Jardinia offers thoughtfully designed residences in Chembur with modern amenities, landscaped gardens, and excellent connectivity to BKC, Eastern Freeway, and South Mumbai.",
+      "Marathon Nextown is one of the largest integrated townships near Mumbai, offering smart and affordable homes in Dombivli with world-class amenities, schools, hospitals, retail, and excellent connectivity via road and rail.",
     image:
-      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1400&q=80",
-    tag: "NEW LAUNCH",
-    externalUrl: "https://www.godrejproperties.com",
+      "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=1400&q=80",
+    tag: "TOWNSHIP",
+    externalUrl: "https://www.marathonrealty.com/nextown",
   },
   {
     id: 2,
-    name: "Godrej The Trees",
-    price: "₹3 Cr – ₹10 Cr",
-    title: "Luxury Township | Vikhroli East",
-    location: "Vikhroli, Mumbai",
+    name: "Marathon Nexzone",
+    price: "₹60 L – ₹2.2 Cr",
+    title: "Integrated Township | Panvel, Navi Mumbai",
+    location: "Panvel, Navi Mumbai",
     status: "Ready & Ongoing",
-    area: "34 Acres",
-    configs: "2, 3, 4 BHK",
-    possession: "Ready Possession / Phase-wise",
+    area: "140+ Acres",
+    configs: "1, 2, 3 BHK",
+    possession: "Ready / Phase-wise",
     description:
-      "A landmark mixed-use township in Vikhroli by Godrej Properties, featuring luxury residences, office spaces, retail, and vast green landscapes in a centrally connected location.",
+      "Marathon Nexzone in Panvel is a sprawling township with over 5,000 homes, set against scenic hills and open landscapes. With a school, hospital, clubhouse, and retail hub within the campus, it offers a fully self-sufficient lifestyle.",
     image:
-      "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1400&q=80",
-    tag: "TOWNSHIP",
-    externalUrl: "https://www.godrejproperties.com",
+      "https://images.unsplash.com/photo-1580587771525-78b9dba3b914?auto=format&fit=crop&w=1400&q=80",
+    tag: "FLAGSHIP",
+    externalUrl: "https://www.marathonrealty.com/nexzone",
+  },
+  {
+    id: 3,
+    name: "Marathon Millennium & Futurex",
+    price: "₹3 Cr – ₹8 Cr",
+    title: "Commercial & Luxury Living | Lower Parel",
+    location: "Lower Parel, Mumbai",
+    status: "Ready",
+    area: "Mixed-Use Development",
+    configs: "2, 3 BHK & Office Spaces",
+    possession: "Ready Possession",
+    description:
+      "Marathon Millennium and Futurex in Lower Parel offer a premium mixed-use development combining luxury residences with Grade A commercial office spaces in one of Mumbai's most sought-after business and lifestyle destinations.",
+    image:
+      "https://images.unsplash.com/photo-1486325212027-8081e485255e?auto=format&fit=crop&w=1400&q=80",
+    tag: "NEW LAUNCH",
+    externalUrl: "https://www.marathonrealty.com/futurex",
   },
 ];
 
@@ -64,16 +81,17 @@ const tagColors = {
   FLAGSHIP: "bg-emerald-600",
   "ULTRA LUXURY": "bg-violet-600",
   "NEW LAUNCH": "bg-amber-500",
+  TOWNSHIP: "bg-blue-600",
 };
 
 const keyFacts = [
-  { value: "110+", label: "Million sq. ft. delivered" },
-  { value: "127+", label: "Year legacy" },
-  { value: "40", label: "Ongoing projects" },
-  { value: "95M", label: "Sq. ft. in pipeline" },
+  { value: "55+", label: "Year legacy" },
+  { value: "100+", label: "projects delivered" },
+  { value: "10000+", label: "Happy family" },
+  { value: "1500", label: "Home in the pipelines" },
 ];
 
-export default function GodrejPage() {
+export default function MarathonPage() {
   const [savedProjects, setSavedProjects] = useState([]);
   const [expandedDesc, setExpandedDesc] = useState({});
 
@@ -90,9 +108,9 @@ export default function GodrejPage() {
   return (
     <div className="relative min-h-screen">
       {/* ── Hero ── */}
-      <section className="bg-white mx-auto max-w-7xl">
+      <section className="bg-white mx-auto max-w-7xl px-4 sm:px-6">
         {/* Breadcrumb */}
-        <div className="mx-auto max-w-6xl px-4 py-4 mt-3 sm:px-6">
+        <div className="mx-auto max-w-6xl py-4 mt-3">
           <div className="flex items-center gap-2 text-[13px] font-medium text-slate-500">
             <Link href="/" className="transition-colors hover:text-blue-600">
               Home
@@ -111,7 +129,7 @@ export default function GodrejPage() {
                 d="M9 5l7 7-7 7"
               />
             </svg>
-            <span className="text-slate-800">Godrej Properties</span>
+            <span className="text-slate-800">Marathon</span>
           </div>
         </div>
 
@@ -119,8 +137,8 @@ export default function GodrejPage() {
         <div className="grid grid-cols-1 gap-8 px-4 sm:px-6 lg:grid-cols-2 lg:gap-12">
           <div className="w-full overflow-hidden rounded-2xl">
             <Image
-              src="/Godrej.webp"
-              alt="Godrej Development"
+              src="/marathon.jpg"
+              alt="Piramal Development"
               width={800}
               height={520}
               className="h-[340px] w-full object-cover lg:h-[460px]"
@@ -130,27 +148,27 @@ export default function GodrejPage() {
           {/* Text */}
           <div className="flex flex-col justify-center">
             <p className="mb-3 text-[11px] font-bold tracking-[0.2em] text-amber-700 uppercase">
-              THE GODREJ GROUP
+              Marathon{" "}
             </p>
             <h1
-              className="text-[clamp(2rem,4vw,3.2rem)] font-semibold leading-tight text-slate-900"
+              className="text-[clamp(1.8rem,3.5vw,3rem)] font-semibold leading-tight text-slate-900"
               style={{ fontFamily: "Georgia, serif" }}
             >
-              Shaping Indian real estate
+              Building Communities, Not Just Homes
             </h1>
             <p className="mt-5 text-[15px] leading-relaxed text-slate-500">
-              Established in 1897, the Godrej Group has its roots in India's
-              Independence and Swadeshi movement. Our founder, Ardeshir Godrej,
-              a lawyer-turned-serial entrepreneur failed with a few ventures
-              before he struck gold with a locks business. Today, we enjoy the
-              patronage of 1.1 billion consumers globally across consumer goods,
-              real estate, appliances, agriculture and many other businesses. In
-              fact, our geographical footprint extends beyond Earth, with our
-              engines now powering many of India's space missions.
+              We are a 54+ year old, Mumbai based real estate development
+              company that has completed over 100 projects in the city. We are
+              currently building several townships in the fastest growing
+              neighborhoods, affordable housing projects, ultra-luxury
+              skyscrapers, small offices and large business centers. Our
+              projects are spread across the Mumbai Metropolitan Region (MMR)
             </p>
           </div>
         </div>
-        <div className="mt-8 grid grid-cols-2 gap-4">
+
+        {/* Key facts */}
+        <div className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-4">
           {keyFacts.map((fact) => (
             <div
               key={fact.label}
@@ -168,7 +186,7 @@ export default function GodrejPage() {
       </section>
 
       {/* ── Projects ── */}
-      <section className="px-6 pb-20 mt-6">
+      <section className="px-6 pb-20 mt-10">
         <div className="mx-auto max-w-7xl">
           <div className="mb-10">
             <p className="mb-1 text-[11px] font-bold tracking-[0.25em] text-slate-400 uppercase">
@@ -179,14 +197,14 @@ export default function GodrejPage() {
             </h2>
             <p className="mt-1.5 text-[15px] font-medium text-slate-600">
               <span className="font-bold text-blue-600">
-                {godrejProjects.length}
+                {marathonProjects.length}
               </span>{" "}
               active projects
             </p>
           </div>
 
           <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-            {godrejProjects.map((project) => {
+            {marathonProjects.map((project) => {
               const isSaved = savedProjects.includes(project.id);
               const isExpanded = expandedDesc[project.id];
               const shortDesc = `${project.description.slice(0, 95)}...`;
@@ -243,7 +261,9 @@ export default function GodrejPage() {
                     {/* Status badge */}
                     <span
                       className={`absolute bottom-4 right-6 rounded-full px-3 py-1.5 text-[11.5px] font-bold text-white shadow-md ${
-                        project.status === "Ready"
+                        project.status === "Ready" ||
+                        project.status === "Ready & Ongoing" ||
+                        project.status === "Ready & Ongoing Phases"
                           ? "bg-emerald-500"
                           : "bg-amber-500"
                       }`}
@@ -304,7 +324,7 @@ export default function GodrejPage() {
                       </button>
                     </p>
 
-                    {/* CTA buttons */}
+                    {/* CTA */}
                     <div className="mt-auto flex gap-3">
                       <a
                         href={project.externalUrl}
@@ -323,28 +343,49 @@ export default function GodrejPage() {
         </div>
       </section>
 
+      {/* ── Our Values ── */}
+      <section className="px-6 py-20">
+        <div className="mx-auto max-w-6xl">
+          <div className="mb-12 text-center">
+            <p className="mb-3 text-[18px] font-bold tracking-[0.2em] text-amber-700 uppercase">
+              Our Values
+            </p>
+          </div>
+          <div className="grid gap-6 sm:grid-cols-2">
+            {storyCards.map((card) => (
+              <div
+                key={card.title}
+                className="rounded-2xl border border-slate-300 bg-white/60 p-8 backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
+              >
+                <h3 className="mb-3 text-[12px] font-bold tracking-[0.2em] text-amber-700 uppercase">
+                  {card.title}
+                </h3>
+                <p className="mt-3 text-[14px] leading-relaxed text-slate-500">
+                  {card.desc}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ── Who We Are ── */}
       <section className="border-t border-slate-100 bg-white px-6 py-16">
         <div className="mx-auto max-w-6xl">
           <div className="mb-12 text-center">
             <p className="mb-3 text-[11px] font-bold tracking-[0.2em] text-amber-700 uppercase">
-              our journey
+              Our story
             </p>
-            <h2 className="text-xl font-extralight tracking-tight mt-6">
-              "127-year legacy of excellence and trust with a commitment to
-              cutting-edge design and technology."
-            </h2>
           </div>
           <div className="grid gap-6 sm:grid-cols-1">
-            <h1 className="rounded-2xl border border-slate-300 bg-white/60 p-5 backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
-              Godrej Properties brings the Godrej Group philosophy of
-              innovation, sustainability, and excellence to the real estate
-              industry. Every Godrej Properties' development combines a 127–year
-              legacy of excellence and trust with a commitment to cutting-edge
-              design and technology. Since 1990, Godrej Properties Limited (GPL)
-              has been a bellwether of excellence in the Indian real estate
-              industry.
-            </h1>
+            <div className="rounded-2xl border border-slate-300 bg-white/60 p-5 backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:shadow-lg text-[15px] leading-relaxed text-slate-600">
+              Our origins date back to 1922 when our patriarch played a key role
+              in creating the master plan for 550 acres of the suburb of Mulund
+              - his role in the planning has resulted in Mulund being one of the
+              best planned suburbs today. The company was formally established
+              in 1969 and since then we haven't looked back. Today, we have
+              iconic projects spanning the whole city.
+            </div>
           </div>
         </div>
       </section>

@@ -75,57 +75,6 @@ const piramalProjects = [
     tag: "TOWNSHIP",
     externalUrl: "https://www.piramalrealty.com/revanta",
   },
-  {
-    id: 4,
-    name: "Marathon Nextown",
-    price: "₹55 L – ₹1.8 Cr",
-    title: "Affordable Smart Homes | Dombivli",
-    location: "Dombivli, Thane",
-    status: "Under Construction",
-    area: "100+ Acres",
-    configs: "1, 2, 3 BHK",
-    possession: "2026–2028 (Phase-wise)",
-    description:
-      "Marathon Nextown is one of the largest integrated townships near Mumbai, offering smart and affordable homes in Dombivli with world-class amenities, schools, hospitals, retail, and excellent connectivity via road and rail.",
-    image:
-      "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=1400&q=80",
-    tag: "TOWNSHIP",
-    externalUrl: "https://www.marathonrealty.com/nextown",
-  },
-  {
-    id: 5,
-    name: "Marathon Nexzone",
-    price: "₹60 L – ₹2.2 Cr",
-    title: "Integrated Township | Panvel, Navi Mumbai",
-    location: "Panvel, Navi Mumbai",
-    status: "Ready & Ongoing",
-    area: "140+ Acres",
-    configs: "1, 2, 3 BHK",
-    possession: "Ready / Phase-wise",
-    description:
-      "Marathon Nexzone in Panvel is a sprawling township with over 5,000 homes, set against scenic hills and open landscapes. With a school, hospital, clubhouse, and retail hub within the campus, it offers a fully self-sufficient lifestyle.",
-    image:
-      "https://images.unsplash.com/photo-1580587771525-78b9dba3b914?auto=format&fit=crop&w=1400&q=80",
-    tag: "FLAGSHIP",
-    externalUrl: "https://www.marathonrealty.com/nexzone",
-  },
-  {
-    id: 6,
-    name: "Marathon Futurex",
-    price: "₹3 Cr – ₹8 Cr",
-    title: "Commercial & Luxury Living | Lower Parel",
-    location: "Lower Parel, Mumbai",
-    status: "Ready",
-    area: "Mixed-Use Development",
-    configs: "2, 3 BHK & Office Spaces",
-    possession: "Ready Possession",
-    description:
-      "Marathon Millennium and Futurex in Lower Parel offer a premium mixed-use development combining luxury residences with Grade A commercial office spaces in one of Mumbai's most sought-after business and lifestyle destinations.",
-    image:
-      "https://images.unsplash.com/photo-1486325212027-8081e485255e?auto=format&fit=crop&w=1400&q=80",
-    tag: "NEW LAUNCH",
-    externalUrl: "https://www.marathonrealty.com/futurex",
-  },
 ];
 
 const tagColors = {
@@ -180,13 +129,12 @@ export default function PiramalPage() {
                 d="M9 5l7 7-7 7"
               />
             </svg>
-            <span className="text-slate-800">Piramal &amp; Marathon</span>
+            <span className="text-slate-800">Piramal</span>
           </div>
         </div>
 
         {/* Split layout — image left, text right */}
-        <div className="grid grid-cols-1 gap-10 lg:grid-cols-2 lg:items-center">
-          {/* Image */}
+        <div className="grid grid-cols-1 gap-8 px-4 sm:px-6 lg:grid-cols-2 lg:gap-12">
           <div className="w-full overflow-hidden rounded-2xl">
             <Image
               src="/piramal.webp"
@@ -200,7 +148,7 @@ export default function PiramalPage() {
           {/* Text */}
           <div className="flex flex-col justify-center">
             <p className="mb-3 text-[11px] font-bold tracking-[0.2em] text-amber-700 uppercase">
-              Piramal &amp; Marathon Group
+              Piramal
             </p>
             <h1
               className="text-[clamp(1.8rem,3.5vw,3rem)] font-semibold leading-tight text-slate-900"
@@ -229,7 +177,7 @@ export default function PiramalPage() {
           {keyFacts.map((fact) => (
             <div
               key={fact.label}
-              className="rounded-xl border border-slate-100 bg-slate-50 px-4 py-3"
+              className="rounded-xl border border-slate-300 bg-slate-50 px-4 py-3"
             >
               <p className="text-[1.6rem] font-black leading-none text-amber-700">
                 {fact.value}
@@ -405,14 +353,14 @@ export default function PiramalPage() {
         <div className="mx-auto max-w-6xl">
           <div className="mb-12 text-center">
             <p className="mb-3 text-[18px] font-bold tracking-[0.2em] text-amber-700 uppercase">
-Our Values
+              Our Values
             </p>
           </div>
           <div className="grid gap-6 sm:grid-cols-2">
             {storyCards.map((card) => (
               <div
                 key={card.title}
-                className="rounded-2xl border border-white/80 bg-white/60 p-8 backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
+                className="rounded-2xl border border-slate-300 bg-white/60 p-8 backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
               >
                 <h3 className="mb-3 text-[12px] font-bold tracking-[0.2em] text-amber-700 uppercase">
                   {card.title}
@@ -435,7 +383,7 @@ Our Values
             </p>
           </div>
           <div className="grid gap-6 sm:grid-cols-1">
-            <div className="rounded-2xl border border-white/80 bg-white/60 p-5 backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:shadow-lg text-[15px] leading-relaxed text-slate-600">
+            <div className="rounded-2xl border border-slate-300 bg-white/60 p-5 backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:shadow-lg text-[15px] leading-relaxed text-slate-600">
               To be India's most admired real estate company, admired not only
               for its scale & profitability, but also for its impact on the
               lives of its customers & the progress of our country.

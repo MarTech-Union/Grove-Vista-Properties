@@ -135,9 +135,8 @@ export default function LodhaPage() {
         </div>
 
         {/* Split layout — image left, text right */}
-        <div className="flex flex-row gap-12 lg:flex-row lg:items-center">
-          {/* Image */}
-          <div className="w-full overflow-hidden rounded-2xl lg:w-[55%] lg:shrink-0">
+        <div className="grid grid-cols-1 gap-8 px-4 sm:px-6 lg:grid-cols-2 lg:gap-12">
+          <div className="w-full overflow-hidden rounded-2xl">
             <Image
               src="/About-Lodha.jpg"
               alt="Lodha Development"
@@ -170,7 +169,7 @@ export default function LodhaPage() {
           {keyFacts.map((fact) => (
             <div
               key={fact.label}
-              className="rounded-xl border border-slate-100 bg-slate-50 px-4 py-3"
+              className="rounded-xl border border-slate-300 bg-slate-50 px-4 py-3"
             >
               <p className="text-[1.6rem] font-black leading-none text-amber-700">
                 {fact.value}
@@ -354,7 +353,7 @@ export default function LodhaPage() {
             {storyCards.map((card) => (
               <div
                 key={card.title}
-                className="rounded-2xl border border-white/80 bg-white/60 p-8 backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
+                className="rounded-2xl border border-slate-300 bg-white/60 p-8 backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
               >
                 <h3 className="mb-3 text-[12px] font-bold tracking-[0.2em] text-amber-700 uppercase">
                   {card.title}
@@ -392,7 +391,7 @@ export default function LodhaPage() {
             ].map((item) => (
               <div
                 key={item.title}
-                className="flex items-start gap-5 rounded-2xl border border-slate-100 bg-[#fafaf8] p-7 transition-all hover:-translate-y-1 hover:shadow-md"
+                className="flex items-start gap-5 rounded-2xl border border-slate-300 p-3 bg-[#fafaf8] p-7 transition-all hover:-translate-y-1 hover:shadow-md"
               >
                 <span className="text-4xl">{item.icon}</span>
                 <div>

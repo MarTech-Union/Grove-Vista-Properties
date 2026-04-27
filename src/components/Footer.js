@@ -1,20 +1,15 @@
 import Link from "next/link";
 
 const footerLinks = {
-  Services: [
-    { name: "Leasing", path: "/services" },
-    { name: "Mortgages", path: "/services" },
-    { name: "Snagging and Inspection", path: "/services" },
-    { name: "Holiday Homes", path: "/services" },
-  ],
   Company: [
     { name: "About Us", path: "/about" },
-    { name: "Careers", path: "/services" },
-    { name: "Our Awards", path: "/about" },
-    { name: "Blog", path: "/" },
-    { name: "Newsletter", path: "/about/newsletter-subscribe" },
-    { name: "Contact Us", path: "/contact" },
+    { name: "Careers", path: "/careers" },
     { name: "Testimonials", path: "/testimonials" },
+    { name: "Newsletter", path: "/newsletter-subscribe" },
+  ],
+  Resources: [
+    { name: "Blog", path: "/blog" },
+    { name: "FAQs", path: "/faq" },
   ],
 };
 

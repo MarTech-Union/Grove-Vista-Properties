@@ -25,7 +25,7 @@ const menuData = {
   Projects: {
     title: "New Projects in Mumbai",
     path: "",
-    showHeadingsOnly: true, // ← Only headings shown as clickable links
+    showHeadingsOnly: true,
     sections: [
       {
         heading: "Lodha Group",
@@ -51,11 +51,16 @@ const menuData = {
         ],
       },
       {
-        heading: "Piramal & Marathon",
+        heading: "Piramal",
         items: [
           "Piramal Mahalaxmi (South Mumbai)",
           "Piramal Aranya (Byculla, Mumbai)",
           "Piramal Revanta (Mulund, Mumbai)",
+        ],
+      },
+      {
+        heading: "Marathon",
+        items: [
           "Marathon Nextown (Dombivli)",
           "Marathon Nexzone (Panvel)",
           "Marathon Millennium / Marathon Futurex (Lower Parel, Mumbai)",
@@ -64,22 +69,6 @@ const menuData = {
     ],
   },
 
-  /* Developers: {
-    title: "Top Developers",
-    path: null,
-    sections: [
-      {
-        heading: "Trusted Developers",
-        items: [
-          "Lodha Group",
-          "Oberoi Realty",
-          "Godrej Properties",
-          "Piramal Realty",
-          "Marathon Group",
-        ],
-      },
-    ],
-  },*/
   AboutUs: {
     title: "About Us",
     path: "/about",
@@ -93,11 +82,8 @@ const menuData = {
     title: "Resources",
     path: null,
     sections: [
-      /*  {
-        heading: "Company",
-        items: ["About Us", "Testimonials", "Careers"],
-      },*/
       {
+        heading: "",
         items: ["Blogs", "FAQs"],
       },
     ],
@@ -114,29 +100,16 @@ const menuItemRoutes = {
   "Contact Us": "/contact",
   Careers: "/careers",
   Press: "/about",
-  Blog: "/",
-  FAQs: "/",
   "EMI Calculator": "/services/emiCalculator",
 
-  // Projects — heading-level routes
   "Lodha Group": "/lodha",
   "Oberoi & Others": "/oberoi",
   "Godrej Properties": "/godrej",
-  "Piramal & Marathon": "/piramal",
-
-  // Projects — item-level routes (kept for reference / future use)
-  "Palava City (Navi Mumbai)": "/lodha",
-  "Lodha Wadala / New Cuffe Parade (Mumbai)": "/lodha",
-  "Lodha Byculla / South Mumbai Redevelopment Projects": "/lodha",
-
-  "Oberoi Garden City (Goregaon, Mumbai)": "/oberoi",
-  "Three Sixty West (Worli, Mumbai)": "/oberoi",
-  "Peddar Road Luxury Project (New Launch)": "/oberoi",
-
-  "Godrej Jardinia (Chembur, Mumbai)": "/godrej",
-  "Godrej Vikhroli Township / The Trees": "/godrej",
-
-  "FAQs":"/faq"
+  "Piramal": "/piramal",
+  "Marathon":"/marathon",
+  
+  FAQs: "/faq",
+  Blogs: "/blog",
 };
 
 function isRoutable(path) {
@@ -197,7 +170,10 @@ export default function Header() {
                 setActiveMenu(menu);
               }}
               onMouseLeave={() => {
-                closeTimeout.current = setTimeout(() => setActiveMenu(null), 200);
+                closeTimeout.current = setTimeout(
+                  () => setActiveMenu(null),
+                  200,
+                );
               }}
             >
               <button
@@ -216,7 +192,9 @@ export default function Header() {
                 {data.sections && (
                   <svg
                     className={`h-3.5 w-3.5 transition-transform duration-200 ${
-                      activeMenu === menu ? "rotate-180 text-blue-500" : "text-slate-400"
+                      activeMenu === menu
+                        ? "rotate-180 text-blue-500"
+                        : "text-slate-400"
                     }`}
                     fill="none"
                     stroke="currentColor"
@@ -236,18 +214,22 @@ export default function Header() {
               {/* Desktop Dropdown */}
               {activeMenu === menu && data.sections && (
                 <div
-                  className={`absolute left-0 top-full z-50 mt-2 rounded-2xl border border-white/60 bg-white/95 p-6 shadow-[0_20px_60px_-10px_rgba(0,0,0,0.15)] backdrop-blur-2xl ${
-                    menu === "Resources" ? "w-[180px]" : "w-[300px]"
+                  className={`absolute left-0 top-full z-50  rounded-2xl border border-white/60 bg-white/95 p-5 shadow-[0_20px_60px_-10px_rgba(0,0,0,0.15)] backdrop-blur-2xl ${
+                    menu === "Resources" ? "w-[100px]" : "w-[300px]"
                   }`}
                   onMouseEnter={() => {
-                    if (closeTimeout.current) clearTimeout(closeTimeout.current);
+                    if (closeTimeout.current)
+                      clearTimeout(closeTimeout.current);
                   }}
                   onMouseLeave={() => {
-                    closeTimeout.current = setTimeout(() => setActiveMenu(null), 200);
+                    closeTimeout.current = setTimeout(
+                      () => setActiveMenu(null),
+                      350,
+                    );
                   }}
                 >
                   {/* Dropdown header */}
-                  <div className="mb-5 flex items-center gap-2 border-b border-slate-100 pb-4">
+                  <div className=" flex items-center gap-2 border-b border-slate-100 pb-4">
                     <div className="h-5 w-1.5 rounded-full bg-blue-600" />
                     <h2 className="text-[13px] font-extrabold uppercase tracking-wider text-blue-600">
                       {data.title}
@@ -256,7 +238,7 @@ export default function Header() {
 
                   {/* Dropdown body */}
                   <div
-                    className={`max-h-60 overflow-y-auto pr-1 ${
+                    className={`pr-1 ${
                       menu === "Resources" || data.showHeadingsOnly
                         ? "flex flex-col gap-1"
                         : "grid grid-cols-2 gap-4"
@@ -274,11 +256,13 @@ export default function Header() {
                           {section.heading}
                         </button>
                       ) : (
-                        // ── All other menus: heading label + item list ──
+                        // FIX — only render heading if it exists
                         <div key={section.heading || index}>
-                          <p className="mb-3 text-[11px] font-extrabold uppercase tracking-widest text-slate-400">
-                            {section.heading}
-                          </p>
+                          {section.heading && (
+                            <p className="mb-3 text-[11px] font-extrabold uppercase tracking-widest text-slate-400">
+                              {section.heading}
+                            </p>
+                          )}
                           <div className="flex flex-col gap-1">
                             {section.items.map((item) => (
                               <button
@@ -292,7 +276,7 @@ export default function Header() {
                             ))}
                           </div>
                         </div>
-                      )
+                      ),
                     )}
                   </div>
                 </div>
@@ -409,7 +393,9 @@ export default function Header() {
                       router.push(data.path);
                       setIsMobileMenuOpen(false);
                     } else {
-                      setMobileExpanded((prev) => (prev === menu ? null : menu));
+                      setMobileExpanded((prev) =>
+                        prev === menu ? null : menu,
+                      );
                     }
                   }}
                   type="button"
@@ -418,7 +404,9 @@ export default function Header() {
                   {data.sections && (
                     <svg
                       className={`h-4 w-4 transition-transform duration-200 ${
-                        mobileExpanded === menu ? "rotate-180 text-blue-500" : "text-slate-400"
+                        mobileExpanded === menu
+                          ? "rotate-180 text-blue-500"
+                          : "text-slate-400"
                       }`}
                       fill="none"
                       stroke="currentColor"
@@ -465,7 +453,7 @@ export default function Header() {
                             </button>
                           ))}
                         </div>
-                      )
+                      ),
                     )}
                   </div>
                 )}

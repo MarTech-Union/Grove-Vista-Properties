@@ -134,9 +134,8 @@ export default function OberoiPage() {
         </div>
 
         {/* Split layout — image left, text right */}
-        <div className="grid grid-cols-2 gap-12 lg:flex-row lg:items-center">
-          {/* Image */}
-          <div className="w-full overflow-hidden rounded-2xl lg:w-[55%] lg:shrink-0">
+        <div className="grid grid-cols-1 gap-8 px-4 sm:px-6 lg:grid-cols-2 lg:gap-12">
+          <div className="w-full overflow-hidden rounded-2xl">
             <Image
               src="/Oberoi.webp"
               alt="Oberoi Development"
@@ -152,7 +151,7 @@ export default function OberoiPage() {
               About Us
             </p>
             <h1
-              className="text-[clamp(2rem,4vw,3.2rem)] font-semibold leading-tight text-slate-900"
+              className="text-2xl font-semibold leading-tight text-slate-900 lg:text-4xl"
               style={{ fontFamily: "Georgia, serif" }}
             >
               Our Company Philosophy
@@ -171,7 +170,7 @@ export default function OberoiPage() {
           {keyFacts.map((fact) => (
             <div
               key={fact.label}
-              className="rounded-xl border border-slate-100 bg-slate-50 px-4 py-3"
+              className="rounded-xl border border-slate-300 bg-slate-50 px-4 py-3"
             >
               <p className="text-[1.6rem] font-black leading-none text-amber-700">
                 {fact.value}
@@ -352,7 +351,7 @@ export default function OberoiPage() {
             {storyCards.map((card) => (
               <div
                 key={card.title}
-                className="rounded-2xl border border-white/80 bg-white/60 p-8 backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
+                className="rounded-2xl border border-slate-300 bg-white/60 p-8 backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
               >
                 <h3 className="mb-3 text-[12px] font-bold tracking-[0.2em] text-amber-700 uppercase">
                   {card.title}
@@ -378,7 +377,7 @@ export default function OberoiPage() {
             </h2>
           </div>
           <div className="grid gap-6 sm:grid-cols-1">
-            <h1 className="rounded-2xl border border-white/80 bg-white/60 p-5 backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
+            <h1 className="rounded-2xl border border-slate-300 bg-white/60 p-5 backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
               The vision of our company is an actionable, purpose-led ideal that
               has a real and significant bearing on our deliveries and our
               conduct. We are committed to ensuring that our offerings are

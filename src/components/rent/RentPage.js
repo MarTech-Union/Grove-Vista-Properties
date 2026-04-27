@@ -261,7 +261,7 @@ export default function PropertyRent() {
       {/* ── Search Bar ── */}
       <div className="bg-white/70 backdrop-blur-xl border-b border-white/60 sticky top-0 z-40 shadow-[0_8px_30px_rgb(0,0,0,0.04)]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 py-4">
-          <div className="flex flex-wrap gap-3 items-center">
+          <div className="flex flex-wrap gap-3 items-center mt-5">
             {/* Search input */}
             <div className="flex-1 min-w-[220px] flex items-center gap-2 border border-white bg-white/50 backdrop-blur-md rounded-xl px-4 py-2.5 shadow-sm focus-within:border-blue-400 focus-within:bg-white transition-all">
               <svg

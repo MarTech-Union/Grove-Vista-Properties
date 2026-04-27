@@ -216,48 +216,54 @@ export default function FAQPage() {
   return (
     <div className="relative min-h-screen bg-white">
       {/* ── Hero ── */}
-      <section className="border-b border-slate-100 bg-gradient-to-b from-slate-50 to-white px-4 pb-14 pt-10 sm:px-6">
-        <div className="mx-auto max-w-4xl text-center">
+      <section className="border-b border-slate-100 bg-gradient-to-b from-slate-50 to-white p-4 pb-14 pt-10 sm:px-6">
+        <div className="mx-auto max-w-6xl text-center">
           {/* Breadcrumb */}
-          <div className="mb-8 flex items-center justify-center gap-2 text-[13px] font-medium text-slate-500">
-            <Link href="/" className="transition-colors hover:text-blue-600">
-              Home
-            </Link>
-            <svg
-              className="h-4 w-4 text-slate-400"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              aria-hidden="true"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M9 5l7 7-7 7"
-              />
-            </svg>
-            <span className="text-slate-800">FAQs</span>
+          <div className="mx-auto max-w-6xl px-4 py-4 mt-3 sm:px-6">
+            <div className="flex items-center gap-2 text-[13px] font-medium text-slate-500">
+              <Link href="/" className="transition-colors hover:text-blue-600">
+                Home
+              </Link>
+              <svg
+                className="h-4 w-4 text-slate-400"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M9 5l7 7-7 7"
+                />
+              </svg>
+              <span className="text-slate-800">FAQs</span>
+            </div>
           </div>
 
-          <p className="mb-3 text-[11px] font-bold tracking-[0.25em] text-amber-700 uppercase">
-            Help Centre
-          </p>
-          <h1
-            className="text-[clamp(2rem,5vw,3.5rem)] font-semibold leading-tight text-slate-900"
-            style={{ fontFamily: "Georgia, serif" }}
-          >
-            Frequently Asked Questions
-          </h1>
-          <p className="mx-auto mt-4 max-w-xl text-[15px] leading-relaxed text-slate-500">
-            Everything you need to know about buying, renting, and investing in
-            Mumbai real estate — answered clearly.
-          </p>
+          <div className="items-center p-5 ">
+            <p className="mb-3 text-[11px] font-bold tracking-[0.25em] text-amber-700 uppercase">
+              Help Centre
+            </p>
+            <h1
+              className="text-[clamp(2rem,5vw,3.5rem)] font-semibold leading-tight text-slate-900"
+              style={{ fontFamily: "Georgia, serif" }}
+            >
+              Frequently Asked Questions
+            </h1>
+            <p className="mx-auto mt-4 max-w-xl text-[15px] leading-relaxed text-slate-500">
+              Everything you need to know about buying, renting, and investing
+              in Mumbai real estate — answered clearly.
+            </p>
+          </div>
         </div>
       </section>
 
+
+
       {/* ── Main ── */}
-      <section className="mx-auto max-w-6xl px-4 py-14 sm:px-6">
+      <section className="mx-auto max-w-6xl px-4 py-14 sm:px-6 mt-4 mb-5">
         <div className="flex flex-col gap-10 lg:flex-row lg:gap-14">
           {/* ── Sidebar / Category tabs ── */}
           <aside className="shrink-0 lg:w-56">
