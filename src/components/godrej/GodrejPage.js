@@ -39,11 +39,11 @@ const godrejProjects = [
     image:
       "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1400&q=80",
     tag: "NEW LAUNCH",
-    externalUrl: "https://www.godrejproperties.com",
+    externalUrl: "https://www.godrejproperties.com/mumbai/residential/godrej-central",
   },
   {
     id: 2,
-    name: "Godrej The Trees",
+    name: "Godrej Vikhroli Township",
     price: "₹3 Cr – ₹10 Cr",
     title: "Luxury Township | Vikhroli East",
     location: "Vikhroli, Mumbai",
@@ -56,7 +56,7 @@ const godrejProjects = [
     image:
       "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1400&q=80",
     tag: "TOWNSHIP",
-    externalUrl: "https://www.godrejproperties.com",
+    externalUrl: "https://www.godrejproperties.com/mumbai/residential/the-trees",
   },
 ];
 

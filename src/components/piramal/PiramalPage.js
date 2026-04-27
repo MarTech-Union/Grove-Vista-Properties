@@ -39,7 +39,7 @@ const piramalProjects = [
     image:
       "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1400&q=80",
     tag: "ULTRA LUXURY",
-    externalUrl: "https://www.piramalrealty.com/mahalaxmi",
+    externalUrl: "https://www.piramals-realty.com/piramal-mahalaxmi/",
   },
   {
     id: 2,
@@ -56,7 +56,7 @@ const piramalProjects = [
     image:
       "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1400&q=80",
     tag: "NEW LAUNCH",
-    externalUrl: "https://www.piramalrealty.com/aranya",
+    externalUrl: "https://www.piramalaranya.com/",
   },
   {
     id: 3,
@@ -73,7 +73,7 @@ const piramalProjects = [
     image:
       "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1400&q=80",
     tag: "TOWNSHIP",
-    externalUrl: "https://www.piramalrealty.com/revanta",
+    externalUrl: "https://www.piramalsrevanta.com/",
   },
 ];
 
@@ -129,7 +129,7 @@ export default function PiramalPage() {
                 d="M9 5l7 7-7 7"
               />
             </svg>
-            <span className="text-slate-800">Piramal</span>
+            <span className="text-slate-800">Piramal Realty</span>
           </div>
         </div>
 
@@ -148,10 +148,10 @@ export default function PiramalPage() {
           {/* Text */}
           <div className="flex flex-col justify-center">
             <p className="mb-3 text-[11px] font-bold tracking-[0.2em] text-amber-700 uppercase">
-              Piramal
+              Piramal Realty
             </p>
             <h1
-              className="text-[clamp(1.8rem,3.5vw,3rem)] font-semibold leading-tight text-slate-900"
+             className="text-[clamp(2rem,4vw,3.2rem)] font-semibold leading-tight text-slate-900"
               style={{ fontFamily: "Georgia, serif" }}
             >
               Enriching Lives Through Design, Care, Impact{" "}

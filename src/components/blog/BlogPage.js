@@ -133,18 +133,7 @@ export default function BlogPage() {
               </div>
 
               {/* ── Date strip (directly below image) ── */}
-              <div className="flex items-center gap-2 border-b border-slate-100 px-4 py-2.5">
-                <svg
-                  className="h-3.5 w-3.5 shrink-0 text-amber-600"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <rect x="3" y="4" width="18" height="18" rx="2" strokeWidth={2} />
-                  <line x1="16" y1="2" x2="16" y2="6" strokeWidth={2} />
-                  <line x1="8" y1="2" x2="8" y2="6" strokeWidth={2} />
-                  <line x1="3" y1="10" x2="21" y2="10" strokeWidth={2} />
-                </svg>
+              <div className="flex items-center gap-2 border-b border-slate-100 px-4 py-2.5 justify-between">
                 <span className="text-[11.5px] font-semibold text-slate-500">
                   {blog.date}
                 </span>

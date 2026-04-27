@@ -39,7 +39,7 @@ const marathonProjects = [
     image:
       "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=1400&q=80",
     tag: "TOWNSHIP",
-    externalUrl: "https://www.marathonrealty.com/nextown",
+    externalUrl: "https://marathon.in/nextown/",
   },
   {
     id: 2,
@@ -56,11 +56,11 @@ const marathonProjects = [
     image:
       "https://images.unsplash.com/photo-1580587771525-78b9dba3b914?auto=format&fit=crop&w=1400&q=80",
     tag: "FLAGSHIP",
-    externalUrl: "https://www.marathonrealty.com/nexzone",
+    externalUrl: "https://marathon.in/nexzone/",
   },
   {
     id: 3,
-    name: "Marathon Millennium & Futurex",
+    name: "Marathon Millennium / Marathon Futurex ",
     price: "₹3 Cr – ₹8 Cr",
     title: "Commercial & Luxury Living | Lower Parel",
     location: "Lower Parel, Mumbai",
@@ -73,7 +73,7 @@ const marathonProjects = [
     image:
       "https://images.unsplash.com/photo-1486325212027-8081e485255e?auto=format&fit=crop&w=1400&q=80",
     tag: "NEW LAUNCH",
-    externalUrl: "https://www.marathonrealty.com/futurex",
+    externalUrl: "https://marathon.in/futurex/",
   },
 ];
 
@@ -129,7 +129,7 @@ export default function MarathonPage() {
                 d="M9 5l7 7-7 7"
               />
             </svg>
-            <span className="text-slate-800">Marathon</span>
+            <span className="text-slate-800">Marathon Group</span>
           </div>
         </div>
 
@@ -148,10 +148,10 @@ export default function MarathonPage() {
           {/* Text */}
           <div className="flex flex-col justify-center">
             <p className="mb-3 text-[11px] font-bold tracking-[0.2em] text-amber-700 uppercase">
-              Marathon{" "}
+              Marathon{" "} Group
             </p>
             <h1
-              className="text-[clamp(1.8rem,3.5vw,3rem)] font-semibold leading-tight text-slate-900"
+             className="text-[clamp(2rem,4vw,3.2rem)] font-semibold leading-tight text-slate-900"
               style={{ fontFamily: "Georgia, serif" }}
             >
               Building Communities, Not Just Homes

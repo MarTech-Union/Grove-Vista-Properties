@@ -36,7 +36,7 @@ const menuData = {
         ],
       },
       {
-        heading: "Oberoi & Others",
+        heading: "Oberoi Realty",
         items: [
           "Oberoi Garden City (Goregaon, Mumbai)",
           "Three Sixty West (Worli, Mumbai)",
@@ -51,7 +51,7 @@ const menuData = {
         ],
       },
       {
-        heading: "Piramal",
+        heading: "Piramal Realty",
         items: [
           "Piramal Mahalaxmi (South Mumbai)",
           "Piramal Aranya (Byculla, Mumbai)",
@@ -59,7 +59,7 @@ const menuData = {
         ],
       },
       {
-        heading: "Marathon",
+        heading: "Marathon Group",
         items: [
           "Marathon Nextown (Dombivli)",
           "Marathon Nexzone (Panvel)",
@@ -103,10 +103,10 @@ const menuItemRoutes = {
   "EMI Calculator": "/services/emiCalculator",
 
   "Lodha Group": "/lodha",
-  "Oberoi & Others": "/oberoi",
+  "Oberoi Realty": "/oberoi",
   "Godrej Properties": "/godrej",
-  "Piramal": "/piramal",
-  "Marathon":"/marathon",
+  "Piramal Realty": "/piramal",
+  "Marathon Group":"/marathon",
   
   FAQs: "/faq",
   Blogs: "/blog",

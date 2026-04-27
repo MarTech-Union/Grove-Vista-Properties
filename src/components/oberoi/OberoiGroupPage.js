@@ -74,7 +74,7 @@ const OberoiProjects = [
     image:
       "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1400&q=80",
     tag: "NEW LAUNCH",
-    externalUrl: "#",
+    externalUrl: "https://www.oberoinewlaunching.com/projects-in-mumbai/oberoi-peddar-road/",
   },
 ];
 
@@ -151,7 +151,7 @@ export default function OberoiPage() {
               About Us
             </p>
             <h1
-              className="text-2xl font-semibold leading-tight text-slate-900 lg:text-4xl"
+              className="text-[clamp(2rem,4vw,3.2rem)] font-semibold leading-tight text-slate-900"
               style={{ fontFamily: "Georgia, serif" }}
             >
               Our Company Philosophy
