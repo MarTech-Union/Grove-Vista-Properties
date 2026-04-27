@@ -64,7 +64,7 @@ export default function BlogPage() {
   const visibleBlogs = showAll ? blogs : blogs.slice(0, INITIAL_VISIBLE);
 
   return (
-    <div className="relative min-h-screen bg-white pt-28">
+    <div className="relative min-h-screen bg-white">
 
        <section className="border-b border-slate-100 bg-gradient-to-b from-slate-50 to-white p-4 pb-14 pt-10 sm:px-6">
         <div className="mx-auto max-w-6xl">
