@@ -1,7 +1,7 @@
 import { Suspense } from "react";
 import AdminLoginForm from "@/components/admin/AdminLoginForm";
 
-export const metadata = { title: "Admin Login | Grove Vista" };
+export const metadata = { title: "Admin Login | Grove Vista Properties" };
 
 export default function AdminLoginPage() {
   return (
@@ -10,8 +10,8 @@ export default function AdminLoginPage() {
         {/* Brand */}
         <div className="mb-8 text-center">
           <p className="text-3xl font-black tracking-tight">
-            <span className="text-blue-400">Grove</span>
-            <span className="text-white"> Vista</span>
+            <span className="text-blue-400">Grove Vista</span>
+            <span className="text-white"> Properties</span>
           </p>
           <p className="mt-1 text-sm font-medium text-slate-400">Admin Panel</p>
         </div>

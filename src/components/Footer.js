@@ -33,7 +33,7 @@ export default function Footer() {
                 className="flex-1 rounded-lg bg-white px-4 py-3 text-sm text-black shadow-sm placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
               <Link
-                href="/about/newsletter-subscribe"
+                href="/newsletter-subscribe"
                 className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-slate-600 text-white shadow-sm transition-all hover:border-white hover:bg-white hover:text-black"
                 aria-label="Subscribe"
               >
