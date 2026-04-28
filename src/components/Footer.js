@@ -8,7 +8,7 @@ const footerLinks = {
     { name: "Newsletter", path: "/newsletter-subscribe" },
   ],
   Resources: [
-    { name: "Blog", path: "/blog" },
+    { name: "Blogs", path: "/blog" },
     { name: "FAQs", path: "/faq" },
   ],
 };
