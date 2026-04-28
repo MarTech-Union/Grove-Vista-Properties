@@ -1,4 +1,6 @@
 import { NextResponse } from "next/server";
+import { readJSON, writeJSON } from "@/lib/dataStore";
+import { randomUUID } from "crypto";
 
 const MAX_FILE_SIZE_BYTES = 4 * 1024 * 1024;
 const ALLOWED_CV_TYPES = [
@@ -57,19 +59,29 @@ export async function POST(request) {
       return NextResponse.json({ message: "Please upload a PDF or DOC file." }, { status: 400 });
     }
 
+    const id = `CAR-${randomUUID().slice(0, 8).toUpperCase()}`;
+    const submittedAt = new Date().toISOString();
+
+    const application = {
+      id,
+      fullName,
+      email,
+      mobile,
+      department,
+      nationality,
+      inMumbai,
+      cvFileName: cvFile.name,
+      submittedAt,
+    };
+
+    const existing = await readJSON("applications.json");
+    existing.push(application);
+    await writeJSON("applications.json", existing);
+
     return NextResponse.json(
       {
         message: "Application submitted successfully.",
-        data: {
-          applicationId: `CAR-${Date.now()}`,
-          fullName,
-          email,
-          mobile,
-          department,
-          inMumbai,
-          cvFileName: cvFile.name,
-          submittedAt: new Date().toISOString(),
-        },
+        data: { applicationId: id, fullName, email, mobile, department, inMumbai, cvFileName: cvFile.name, submittedAt },
       },
       { status: 200 }
     );

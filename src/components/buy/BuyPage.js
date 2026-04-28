@@ -1,114 +1,9 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useMemo, useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
-
-const properties = [
-  {
-    id: 1,
-    price: "INR 45.00 Cr",
-    priceCr: 45,
-    title: "Golf Course View | Ultra Luxury | Ready",
-    location: "Mulund , Mumbai",
-    type: "Apartment",
-    status: "Ready",
-    sqft: "7,100",
-    beds: 4,
-    baths: 5,
-    image:
-      "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1400&q=80",
-    description:
-      "Stunning ultra-luxury apartment with golf course views. A masterclass in luxury living offering exquisite amenities and a high-profile neighborhood in Gurgaon.",
-    tag: "HOT DEAL",
-  },
-  {
-    id: 2,
-    price: "INR 35.50 Cr",
-    priceCr: 35.5,
-    title: "City Skyline View | Private Lift | Upgraded",
-    location: "Vasai,Mumbai",
-    type: "Apartment",
-    status: "Ready",
-    sqft: "8,321",
-    beds: 4,
-    baths: 5,
-    image:
-      "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1400&q=80",
-    description:
-      "Luxurious apartment with spectacular city skyline views. Upgraded with premium finishes and exclusive private elevators in the business hub of Bangalore.",
-    tag: "PREMIUM",
-  },
-  {
-    id: 3,
-    price: "INR 15.50 Cr",
-    priceCr: 15.5,
-    title: "Luxury 3BR | Sea Facing | Signature Residence",
-    location: "Lodha World One, Worli, Mumbai",
-    type: "Apartment",
-    status: "Off Plan",
-    sqft: "1,608",
-    beds: 3,
-    baths: 3,
-    image:
-      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1400&q=80",
-    description:
-      "Elegant corner unit with Arabian Sea views in a signature-branded residence. A luxury three-bedroom apartment with world-class amenities.",
-    tag: "OFF PLAN",
-  },
-  {
-    id: 4,
-    price: "INR 12.00 Cr",
-    priceCr: 12,
-    title: "Golf Course Extension | Spanish Villas",
-    location: "Panvel, Mumbai",
-    type: "Villa",
-    status: "Ready",
-    sqft: "5,600",
-    beds: 5,
-    baths: 5,
-    image:
-      "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=1400&q=80",
-    description:
-      "Breathtaking Spanish-style villa located in the heart of Gurgaon. Turnkey investment offering premium amenities and lush green surroundings.",
-    tag: "FURNISHED",
-  },
-  {
-    id: 5,
-    price: "INR 8.50 Cr",
-    priceCr: 8.5,
-    title: "Lakeside Living | Signature Development",
-    location: "Worli, Mumbai",
-    type: "Apartment",
-    status: "Ready",
-    sqft: "3,200",
-    beds: 4,
-    baths: 4,
-    image:
-      "https://images.unsplash.com/photo-1580587771525-78b9dba3b914?auto=format&fit=crop&w=1400&q=80",
-    description:
-      "Iconic lakeside apartment with unmatched luxury and stunning spaces. Exquisite four-bedroom residence designed for modern living.",
-    tag: "EXCLUSIVE",
-  },
-  {
-    id: 6,
-    price: "INR 5.00 Cr",
-    priceCr: 5,
-    title: "Golf Links | Modern Villas | Golf Views",
-    location: "Andheri, Mumbai",
-    type: "Villa",
-    status: "Off Plan",
-    sqft: "2,480",
-    beds: 3,
-    baths: 3,
-    image:
-      "https://images.unsplash.com/photo-1574362848149-11496d93a7c7?auto=format&fit=crop&w=1400&q=80",
-    description:
-      "Smart villa in the heart of Noida with golf course views. A strong off-plan investment with healthy rental yield potential.",
-    tag: "OFF PLAN",
-  },
-];
 
 const tagColors = {
   "HOT DEAL": "bg-red-500",
@@ -227,6 +122,8 @@ export default function BuyPage() {
   const searchParams = useSearchParams();
   const initialQuery = searchParams.get("q") || "";
 
+  const [properties, setProperties] = useState([]);
+  const [propertiesLoading, setPropertiesLoading] = useState(true);
   const [savedProperties, setSavedProperties] = useState([]);
   const [expandedDescriptions, setExpandedDescriptions] = useState({});
   const [activeFilter, setActiveFilter] = useState("Any");
@@ -235,6 +132,14 @@ export default function BuyPage() {
   const [priceRange, setPriceRange] = useState("Any Price");
   const [propertyType, setPropertyType] = useState("Any Type");
   const [openId, setOpenId] = useState(null);
+
+  useEffect(() => {
+    fetch("/api/properties")
+      .then((r) => r.json())
+      .then((data) => setProperties(data.properties || []))
+      .catch(() => setProperties([]))
+      .finally(() => setPropertiesLoading(false));
+  }, []);
 
   const statusFilters = ["Any", "Ready", "Off Plan"];
   const sortOptions = [
@@ -433,7 +338,22 @@ export default function BuyPage() {
           </div>
         </div>
 
-        {filteredProperties.length === 0 ? (
+        {propertiesLoading ? (
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+            {[1, 2, 3, 4, 5, 6].map((n) => (
+              <div key={n} className="rounded-[2rem] border border-white/80 bg-white/60 overflow-hidden animate-pulse">
+                <div className="h-60 bg-slate-200 rounded-t-[2rem]" />
+                <div className="p-6 space-y-3">
+                  <div className="h-6 w-2/3 rounded-lg bg-slate-200" />
+                  <div className="h-4 w-full rounded-lg bg-slate-100" />
+                  <div className="h-4 w-1/2 rounded-lg bg-slate-100" />
+                  <div className="h-12 w-full rounded-xl bg-slate-100" />
+                  <div className="h-10 w-full rounded-xl bg-slate-200" />
+                </div>
+              </div>
+            ))}
+          </div>
+        ) : filteredProperties.length === 0 ? (
           <div className="rounded-3xl border border-white/60 bg-white/40 py-32 text-center shadow-lg backdrop-blur-md">
             <p className="mb-2 text-2xl font-bold text-slate-800">
               No properties align with your search
@@ -565,7 +485,7 @@ export default function BuyPage() {
           </div>
         )}
 
-        {filteredProperties.length > 0 && (
+        {!propertiesLoading && filteredProperties.length > 0 && (
           <div className="mt-14 text-center">
             <button
               className="rounded-xl border border-white bg-white/70 px-10 py-4 text-[14px] font-extrabold text-slate-800 shadow-lg transition-all hover:border-blue-400 hover:text-blue-700 hover:shadow-xl"
