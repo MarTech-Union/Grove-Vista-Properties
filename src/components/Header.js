@@ -215,7 +215,7 @@ export default function Header() {
               {activeMenu === menu && data.sections && (
                 <div
                   className={`absolute left-0 top-full z-50  rounded-2xl border border-white/60 bg-white/95 p-5 shadow-[0_20px_60px_-10px_rgba(0,0,0,0.15)] backdrop-blur-2xl ${
-                    menu === "Resources" ? "w-[100px]" : "w-[300px]"
+                    menu === "Resources" ? "w-[220px]" : "w-[300px]"
                   }`}
                   onMouseEnter={() => {
                     if (closeTimeout.current)
