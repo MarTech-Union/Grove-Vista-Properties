@@ -40,6 +40,7 @@ export default function AdminLoginForm() {
 
   return (
     <form onSubmit={handleSubmit} className="space-y-5">
+
       {error && (
         <div className="rounded-lg bg-red-50 border border-red-200 px-4 py-3 text-sm text-red-700">
           {error}
@@ -47,7 +48,10 @@ export default function AdminLoginForm() {
       )}
 
       <div>
-        <label htmlFor="password" className="block text-sm font-semibold text-slate-700 mb-1.5">
+        <label
+          htmlFor="password"
+          className="block text-sm font-semibold text-slate-700 mb-1.5"
+        >
           Admin Password
         </label>
         <div className="relative">
@@ -58,9 +62,11 @@ export default function AdminLoginForm() {
             onChange={(e) => setPassword(e.target.value)}
             required
             autoFocus
-            className="w-full rounded-xl border border-slate-200 bg-white px-4 py-3 pr-12 text-sm text-slate-900 shadow-sm placeholder:text-slate-400 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20"
             placeholder="Enter admin password"
+            className="w-full rounded-xl border border-slate-200 bg-white px-4 py-3 pr-12 text-sm text-slate-900 shadow-sm placeholder:text-slate-400 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20"
           />
+
+          {/* Show/hide toggle */}
           <button
             type="button"
             onClick={() => setShowPw((v) => !v)}
@@ -98,6 +104,7 @@ export default function AdminLoginForm() {
           "Sign In"
         )}
       </button>
+
     </form>
   );
 }

@@ -1,29 +1,52 @@
 import { NextResponse } from "next/server";
-
-const SESSION_COOKIE = "admin_session";
-const COOKIE_MAX_AGE = 60 * 60 * 24 * 7; // 7 days
+import {
+  ADMIN_SESSION_COOKIE,
+  COOKIE_MAX_AGE,
+  generateAdminSessionToken,
+  timingSafeCompare,
+} from "@/lib/adminAuth";
 
 export async function POST(request) {
   try {
-    const { password } = await request.json();
+    const body = await request.json();
+    const password = body?.password;
 
-    if (!password) {
-      return NextResponse.json({ message: "Password required." }, { status: 400 });
+    // Validate input
+    if (!password || typeof password !== "string") {
+      return NextResponse.json(
+        { message: "Password required." },
+        { status: 400 }
+      );
     }
 
     const adminPassword = process.env.ADMIN_PASSWORD;
     const sessionSecret = process.env.ADMIN_SESSION_SECRET;
 
     if (!adminPassword || !sessionSecret) {
-      return NextResponse.json({ message: "Server misconfiguration." }, { status: 500 });
+      console.error("Missing ADMIN_PASSWORD or ADMIN_SESSION_SECRET in .env");
+      return NextResponse.json(
+        { message: "Server misconfiguration." },
+        { status: 500 }
+      );
     }
 
-    if (password !== adminPassword) {
-      return NextResponse.json({ message: "Invalid password." }, { status: 401 });
+    // Timing-safe password check
+    if (!timingSafeCompare(password, adminPassword)) {
+      return NextResponse.json(
+        { message: "Invalid password." },
+        { status: 401 }
+      );
     }
 
-    const response = NextResponse.json({ message: "Authenticated." }, { status: 200 });
-    response.cookies.set(SESSION_COOKIE, sessionSecret, {
+    // Generate session token
+    const sessionToken = generateAdminSessionToken(sessionSecret);
+
+    const response = NextResponse.json(
+      { message: "Authenticated." },
+      { status: 200 }
+    );
+
+    response.cookies.set(ADMIN_SESSION_COOKIE, sessionToken, {
       httpOnly: true,
       secure: process.env.NODE_ENV === "production",
       sameSite: "lax",
@@ -33,6 +56,9 @@ export async function POST(request) {
 
     return response;
   } catch {
-    return NextResponse.json({ message: "Invalid request." }, { status: 400 });
+    return NextResponse.json(
+      { message: "Invalid request." },
+      { status: 400 }
+    );
   }
 }

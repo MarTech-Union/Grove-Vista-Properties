@@ -1,4 +1,4 @@
-import { readJSON } from "@/lib/dataStore";
+import { readJSON } from "@/lib/jsonDb";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import DeleteContactButton from "./DeleteContactButton";
@@ -7,7 +7,7 @@ export const dynamic = "force-dynamic";
 
 function Row({ label, value }) {
   return (
-    <div className="flex flex-col sm:flex-row sm:items-start gap-1 sm:gap-4 py-3 border-b border-slate-50 last:border-0">
+    <div className="flex flex-col sm:flex-row sm:items-start gap-1 sm:gap-4 py-3 border-b  border-slate-50 last:border-0">
       <span className="w-36 shrink-0 text-xs font-semibold text-slate-500 uppercase tracking-wide">{label}</span>
       <span className="text-sm text-slate-800 break-all">{value || "—"}</span>
     </div>
@@ -21,7 +21,7 @@ export default async function ContactDetailPage({ params }) {
   if (!contact) notFound();
 
   return (
-    <div className="max-w-2xl mx-auto space-y-6">
+    <div className="max-w-2xl mx-auto space-y-6 ">
       <div className="flex items-center gap-4">
         <Link href="/admin/contacts" className="text-sm font-semibold text-blue-600 hover:underline">← Back</Link>
         <h2 className="text-xl font-bold text-slate-900">Contact Detail</h2>

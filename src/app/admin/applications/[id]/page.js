@@ -1,4 +1,4 @@
-import { readJSON } from "@/lib/dataStore";
+import { readJSON } from "@/lib/jsonDb";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import DeleteApplicationButton from "./DeleteApplicationButton";

@@ -1,17 +1,24 @@
 "use client";
 
 import { useState } from "react";
+import { usePathname } from "next/navigation";
 import AdminSidebar from "@/components/admin/AdminSidebar";
 import AdminTopbar from "@/components/admin/AdminTopbar";
 
 export default function AdminLayout({ children }) {
+  const pathname = usePathname();
   const [collapsed, setCollapsed] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
 
+  if (pathname === "/admin/login") {
+    return children;
+  }
+
+  const sidebarWidth = collapsed ? "64px" : "240px";
+
   return (
-    // Fixed overlay covers the public Header/Footer
-    <div className="fixed inset-0 z-[100] flex bg-slate-50 overflow-hidden">
-      {/* Mobile sidebar overlay */}
+    <div className="min-h-screen bg-slate-50">
+      {/* Mobile overlay */}
       {mobileOpen && (
         <div
           className="fixed inset-0 z-[110] bg-black/40 md:hidden"
@@ -19,11 +26,12 @@ export default function AdminLayout({ children }) {
         />
       )}
 
-      {/* Sidebar — desktop always visible, mobile drawer */}
+      {/* Sidebar — always fixed, full height */}
       <div
         className={`
-          fixed inset-y-0 left-0 z-[120] flex flex-col md:relative md:z-auto
-          transition-transform duration-200 ease-in-out
+          fixed inset-y-0 left-0 z-[120] h-full
+          transition-all duration-200 ease-in-out
+          ${collapsed ? "w-16" : "w-60"}
           ${mobileOpen ? "translate-x-0" : "-translate-x-full md:translate-x-0"}
         `}
       >
@@ -33,13 +41,26 @@ export default function AdminLayout({ children }) {
         />
       </div>
 
-      {/* Main area */}
-      <div className="flex flex-1 flex-col min-w-0 overflow-hidden">
+      {/* Topbar — fixed, offset left by sidebar width on desktop */}
+      <div
+        className="fixed top-0 right-0 z-[100] h-16 transition-all duration-200 ease-in-out"
+        style={{ left: sidebarWidth }}
+      >
         <AdminTopbar onMenuClick={() => setMobileOpen((o) => !o)} />
-        <main className="flex-1 overflow-y-auto p-4 sm:p-6">
-          {children}
-        </main>
       </div>
+
+      {/* Mobile topbar — full width, no sidebar offset */}
+      <div className="fixed top-0 left-0 right-0 h-16 z-[100] md:hidden">
+        <AdminTopbar onMenuClick={() => setMobileOpen((o) => !o)} />
+      </div>
+
+      {/* Main content */}
+      <main
+        className="transition-all duration-200 ease-in-out min-h-screen pt-20 px-4 sm:px-6 pb-6 ml-0 md:ml-[var(--sidebar-width)]"
+        style={{ "--sidebar-width": sidebarWidth }}
+      >
+        {children}
+      </main>
     </div>
   );
 }

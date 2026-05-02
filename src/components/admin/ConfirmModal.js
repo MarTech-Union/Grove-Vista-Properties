@@ -12,7 +12,7 @@ export default function ConfirmModal({ open, title, message, confirmLabel = "Del
   if (!open) return null;
 
   return (
-    <div className="fixed inset-0 z-[200] flex items-center justify-center p-4">
+    <div className="fixed inset-0 z-[200] flex items-center justify-center p-4 mt-5">
       <div className="absolute inset-0 bg-black/40 backdrop-blur-sm" onClick={onCancel} />
       <div className="relative w-full max-w-md rounded-2xl bg-white shadow-2xl p-6 animate-in fade-in zoom-in-95 duration-150">
         <div className={`flex h-12 w-12 items-center justify-center rounded-full mb-4 ${danger ? "bg-red-100" : "bg-blue-100"}`}>

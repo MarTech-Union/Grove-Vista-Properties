@@ -1,15 +1,11 @@
 import { NextResponse } from "next/server";
-
-const SESSION_COOKIE = "admin_session";
+import { ADMIN_SESSION_COOKIE } from "@/lib/adminAuth";
 
 export async function POST() {
-  const response = NextResponse.json({ message: "Logged out." }, { status: 200 });
-  response.cookies.set(SESSION_COOKIE, "", {
-    httpOnly: true,
-    secure: process.env.NODE_ENV === "production",
-    sameSite: "lax",
-    maxAge: 0,
-    path: "/",
-  });
+  const response = NextResponse.json(
+    { message: "Logged out." },
+    { status: 200 }
+  );
+  response.cookies.delete(ADMIN_SESSION_COOKIE);
   return response;
 }

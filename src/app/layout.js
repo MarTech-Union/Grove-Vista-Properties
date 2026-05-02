@@ -2,6 +2,7 @@ import { Geist, Geist_Mono, Playfair_Display, Manrope } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import LayoutWrapper from "./LayoutWrapper";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -54,11 +55,7 @@ export default function RootLayout({ children }) {
       className={`${geistSans.variable} ${geistMono.variable} ${playfairDisplay.variable} ${manrope.variable} h-full antialiased`}
     >
       <body className="min-h-full bg-white text-slate-900">
-        <div className="flex min-h-full flex-col">
-          <Header />
-          <main className="flex-1 pt-20">{children}</main>
-          <Footer />
-        </div>
+        <LayoutWrapper>{children}</LayoutWrapper>
       </body>
     </html>
   );

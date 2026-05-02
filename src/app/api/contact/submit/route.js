@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { readJSON, writeJSON } from "@/lib/dataStore";
+import { readJSON, writeJSON } from "@/lib/jsonDb";
 import { randomUUID } from "crypto";
 
 function isValidEmail(email) {
